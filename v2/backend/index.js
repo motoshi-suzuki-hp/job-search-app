@@ -24,7 +24,7 @@ db.connect(err => {
 
 // テーブルの作成
 db.query(`
-    CREATE TABLE IF NOT EXISTS jobs (
+    CREATE TABLE IF NOT EXISTS jobs_v2 (
         id INT AUTO_INCREMENT PRIMARY KEY,
         title VARCHAR(255),
         description TEXT,
@@ -61,7 +61,7 @@ app.get('/api/jobs', (req, res) => {
     const jobDuration = req.query.jobDuration; // クエリパラメータからジョブの期間を取得
     const keywords = keyword.split(/[\s　]+/); // 正規表現を使って半角スペースと全角スペースで分割
     
-    let query = "SELECT * FROM jobs WHERE (";
+    let query = "SELECT * FROM jobs_v2 WHERE (";
     let queryParams = [];
     
     keywords.forEach((word, index) => {

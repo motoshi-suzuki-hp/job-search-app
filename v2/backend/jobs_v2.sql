@@ -1,9 +1,10 @@
+-- mysql -u user -p job_search_app < ./jobs.sql
 -- jobs.sql
 
 USE job_search_app; -- データベース名に合わせて変更してください
 
 -- テーブルが存在しない場合は作成します
-CREATE TABLE IF NOT EXISTS jobs (
+CREATE TABLE IF NOT EXISTS jobs_v2 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255),
     description TEXT,
@@ -14,7 +15,7 @@ CREATE TABLE IF NOT EXISTS jobs (
 );
 
 -- データの挿入
-INSERT INTO jobs (title, description, area, station, job_type, is_single) VALUES
+INSERT INTO jobs_v2 (title, description, area, station, job_type, is_single) VALUES
 ('カフェスタッフ', 'カフェでの接客と清掃業務', '東京', '渋谷', '飲食', 1),
 ('販売スタッフ', 'アパレルショップでの接客とレジ業務', '大阪', '梅田', '小売', 0),
 ('事務アシスタント', 'オフィスでの書類整理と電話対応', '名古屋', '栄', '事務', 1),

@@ -69,11 +69,13 @@ function searchJobs() {
 
 function displayJobs(jobs) {
     const jobList = document.getElementById('job-list'); // 結果を表示するための要素を取得
+    const toggleSwitch = document.getElementById('language-toggle');
     jobList.innerHTML = ''; // 前回の結果をクリア
     jobs.forEach(job => {
         const jobItem = document.createElement('div'); // 各ジョブの情報を表示するためのdiv要素を作成
         jobItem.className = 'job-item';
-        jobItem.innerHTML = `
+        if (toggleSwitch.checked) {
+            jobItem.innerHTML = `
             <h2>${job.title}</h2>
             <p>${job.description}</p>
             <p><strong>エリア:</strong> ${job.area}</p>
@@ -82,6 +84,17 @@ function displayJobs(jobs) {
             <p><strong>バイトの種類:</strong> ${job.is_single ? '単発バイト' : '長期バイト'}</p>
             <a href="/job/${job.id}">詳細を見る</a>
         `;
+        } else {
+            jobItem.innerHTML = `
+                <h2>${job.title}</h2>
+                <p>${job.description}</p>
+                <p><strong>area:</strong> ${job.area}</p>
+                <p><strong>station:</strong> ${job.station}</p>
+                <p><strong>jobtype:</strong> ${job.job_type}</p>
+                <p><strong>issingle:</strong> ${job.is_single ? '単発バイト' : '長期バイト'}</p>
+                <a href="/job/${job.id}">description</a>
+            `;
+        }
         jobList.appendChild(jobItem); // jobList要素に追加
     });
 }

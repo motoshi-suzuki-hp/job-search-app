@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バイト検索</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1 id="header-text" data-lang="headerText">仕事検索アプリ</h1>
+        <label class="switch">
+            <input type="checkbox" id="language-toggle" onchange="toggleLanguage()">
+            <span class="slider round"></span>
+        </label>
+    </header>
+    <main>
+        <div class="search">
+            <input type="text" id="search-input" placeholder="検索ワードを入力" data-lang-placeholder="searchPlaceholder">
+            <br>
+            <label for="area-select" id="area-select-label" data-lang="areaLabel">エリア:</label>
+            <select id="area-select">
+                <option value="" data-lang="all">すべて</option>
+                <option value="東京" data-lang="tokyo">東京</option>
+                <option value="大阪" data-lang="osaka">大阪</option>
+            </select>
+            <br>
+            <label for="station-select" id="station-select-label" data-lang="stationLabel">駅名:</label>
+            <select id="station-select">
+                <option value="" data-lang="all">すべて</option>
+            </select>
+            <br>
+            <label for="job-type-select" id="job-type-select-label" data-lang="jobTypeLabel">職種:</label>
+            <select id="job-type-select">
+                <option value="" data-lang="all">すべて</option>
+                <option value="飲食" data-lang="foodService">飲食</option>
+                <option value="小売" data-lang="retail">小売</option>
+                <option value="事務" data-lang="office">事務</option>
+            </select>
+            <br>
+            <label><input type="radio" name="job-duration" value="all" checked data-lang="all"> すべて</label>
+            <label><input type="radio" name="job-duration" value="single" data-lang="singleJob"> 単発バイト</label>
+            <label><input type="radio" name="job-duration" value="long" data-lang="longJob"> 長期バイト</label>
+            <br>
+            <button onclick="searchJobs()" data-lang="searchButton">検索</button>
+        </div>
+
+        <div id="job-list"></div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
