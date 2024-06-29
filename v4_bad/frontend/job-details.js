@@ -23,25 +23,26 @@ function fetchData(jobId, language) {
 document.addEventListener('DOMContentLoaded', () => {
     const jobId = new URLSearchParams(window.location.search).get('id');
     let language = new URLSearchParams(window.location.search).get('language');
-    const toggleSwitch = document.getElementById('language-toggle');
-
+    // const toggleSwitch = document.getElementById('language-toggle');
+    const switchCheckbox = document.getElementById('switch-checkbox');
 
     if (language === 'ja') {
-        toggleSwitch.checked = true;
+        // toggleSwitch.checked = true;
+        switchCheckbox.lastChild.firstChild.checked = true;
     }
     fetchData(jobId, language);
 
 
-    toggleSwitch.addEventListener('click',() => {
-        // let language = new URLSearchParams(window.location.search).get('language') || 'ja';
-    
-        if (language === 'ja') {
-            language = 'en';
-        } else {
-            language = 'ja';
-        }
-        toggleSwitch.addEventListener('change', fetchData(jobId, language))
-    }, true);
+    document.querySelectorAll('input[name="language"]').forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (language === 'ja') {
+                language = 'en';
+            } else {
+                language = 'ja';
+            }
+            fetchData(jobId, language);
+        });
+    });
 
 
     // document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {

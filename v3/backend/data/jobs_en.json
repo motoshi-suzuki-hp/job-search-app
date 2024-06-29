@@ -21,42 +21,82 @@
     },
     {
         "id": 3,
-        "title": "Cafe Staff",
-        "description": "Customer service and cleaning duties at a cafe",
+        "title": "Office Assistant",
+        "description": "General office work and phone handling",
         "area": "Tokyo",
-        "station": "Shibuya",
-        "job_type": "Food Service",
+        "station": "Shinjuku",
+        "job_type": "Office Work",
         "is_single": true,
-        "image_url": "images/1.jpg"
+        "image_url": "images/3.jpg"
     },
     {
         "id": 4,
-        "title": "Sales Staff",
-        "description": "Customer service and cashier duties at an apparel shop",
+        "title": "Hotel Front Desk Staff",
+        "description": "Reception and customer service at a hotel",
         "area": "Osaka",
-        "station": "Umeda",
-        "job_type": "Retail",
+        "station": "Namba",
+        "job_type": "Hospitality",
         "is_single": false,
-        "image_url": "images/2.jpg"
+        "image_url": "images/4.jpg"
     },
     {
         "id": 5,
-        "title": "Cafe Staff",
-        "description": "Customer service and cleaning duties at a cafe",
+        "title": "System Engineer",
+        "description": "Software development and system maintenance",
         "area": "Tokyo",
-        "station": "Shibuya",
-        "job_type": "Food Service",
+        "station": "Shinagawa",
+        "job_type": "IT",
         "is_single": true,
-        "image_url": "images/1.jpg"
+        "image_url": "images/5.jpg"
     },
     {
         "id": 6,
-        "title": "Sales Staff",
-        "description": "Customer service and cashier duties at an apparel shop",
+        "title": "Restaurant Server",
+        "description": "Customer service and food serving at a restaurant",
         "area": "Osaka",
-        "station": "Umeda",
-        "job_type": "Retail",
+        "station": "Shinsaibashi",
+        "job_type": "Food Service",
         "is_single": false,
-        "image_url": "images/2.jpg"
+        "image_url": "images/6.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Sales Representative",
+        "description": "B2B sales and customer management",
+        "area": "Tokyo",
+        "station": "Roppongi",
+        "job_type": "Sales",
+        "is_single": true,
+        "image_url": "images/7.jpg"
+    },
+    {
+        "id": 8,
+        "title": "Hair Stylist Assistant",
+        "description": "Shampooing and salon cleaning",
+        "area": "Osaka",
+        "station": "Tennoji",
+        "job_type": "Beauty",
+        "is_single": false,
+        "image_url": "images/8.jpg"
+    },
+    {
+        "id": 9,
+        "title": "Warehouse Worker",
+        "description": "Product shipping and inventory management",
+        "area": "Tokyo",
+        "station": "Kasai",
+        "job_type": "Logistics",
+        "is_single": true,
+        "image_url": "images/9.jpg"
+    },
+    {
+        "id": 10,
+        "title": "Cram School Teacher",
+        "description": "Individual tutoring for elementary and junior high school students",
+        "area": "Osaka",
+        "station": "Tsuruhashi",
+        "job_type": "Education",
+        "is_single": false,
+        "image_url": "images/10.jpg"
     }
 ]

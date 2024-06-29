@@ -157,7 +157,7 @@ function displayJobs(jobs) {
             <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
             <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
             <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Type'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
-            <a href="job_details.html?id=${job.id}&language=${language}">${language === 'ja' ? '詳細を見る' : 'View Details'}</a>
+            <a href="/job?id=${job.id}&language=${language}">${language === 'ja' ? '詳細を見る' : 'View Details'}</a>
         `;
         
         jobList.appendChild(jobItem);

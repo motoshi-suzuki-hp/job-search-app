@@ -18,4 +18,85 @@
         "job_type": "小売",
         "is_single": false,
         "image_url": "images/2.jpg"
-    }]
+    },
+    {
+        "id": 3,
+        "title": "事務アシスタント",
+        "description": "一般事務と電話対応",
+        "area": "東京",
+        "station": "新宿",
+        "job_type": "オフィスワーク",
+        "is_single": true,
+        "image_url": "images/3.jpg"
+    },
+    {
+        "id": 4,
+        "title": "ホテルフロントスタッフ",
+        "description": "ホテルでの受付と顧客対応",
+        "area": "大阪",
+        "station": "難波",
+        "job_type": "サービス",
+        "is_single": false,
+        "image_url": "images/4.jpg"
+    },
+    {
+        "id": 5,
+        "title": "システムエンジニア",
+        "description": "ソフトウェア開発とシステム保守",
+        "area": "東京",
+        "station": "品川",
+        "job_type": "IT",
+        "is_single": true,
+        "image_url": "images/5.jpg"
+    },
+    {
+        "id": 6,
+        "title": "飲食店ホールスタッフ",
+        "description": "レストランでの接客と配膳",
+        "area": "大阪",
+        "station": "心斎橋",
+        "job_type": "飲食",
+        "is_single": false,
+        "image_url": "images/6.jpg"
+    },
+    {
+        "id": 7,
+        "title": "営業職",
+        "description": "法人向け営業と顧客管理",
+        "area": "東京",
+        "station": "六本木",
+        "job_type": "営業",
+        "is_single": true,
+        "image_url": "images/7.jpg"
+    },
+    {
+        "id": 8,
+        "title": "美容師アシスタント",
+        "description": "シャンプーと店内清掃",
+        "area": "大阪",
+        "station": "天王寺",
+        "job_type": "美容",
+        "is_single": false,
+        "image_url": "images/8.jpg"
+    },
+    {
+        "id": 9,
+        "title": "倉庫作業員",
+        "description": "商品の入出荷と在庫管理",
+        "area": "東京",
+        "station": "葛西",
+        "job_type": "物流",
+        "is_single": true,
+        "image_url": "images/9.jpg"
+    },
+    {
+        "id": 10,
+        "title": "塾講師",
+        "description": "小中学生への個別指導",
+        "area": "大阪",
+        "station": "鶴橋",
+        "job_type": "教育",
+        "is_single": false,
+        "image_url": "images/10.jpg"
+    }
+]

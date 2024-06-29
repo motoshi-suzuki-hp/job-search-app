@@ -92,18 +92,20 @@ app.get('/api/job/:id', async (req, res) => {
     const language = req.query.language || 'ja';
     const filePath = path.join(__dirname, 'data', `jobs_${language}.json`);
 
-    try {
-        const jobs = await readJsonFile(filePath);
-        const job = jobs.find(j => j.id === id);
-        if (job) {
-            res.json(job);
-        } else {
-            res.status(404).send('Job not found');
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send('Failed to read job data.');
+            return;
         }
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Failed to load job data.');
-    }
+        const jobs = JSON.parse(data);
+        const job = jobs.find(j => j.id === jobId);
+
+        if (!job) {
+            res.status(404).send('Job not found.');
+            return;
+        }
+        res.json(job);
+    });
 });
 
 // Custom 404 page
