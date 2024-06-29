@@ -1,63 +1,70 @@
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
 const app = express();
-const port = 3000;
-
-// 静的ファイルの提供
-app.use(express.static(path.join(__dirname, '../frontend')));
+const port = 3000; 
 
 // ミドルウェアの設定
 app.use(express.json());
+
+// 静的ファイルの提供
+app.use(express.static(path.join(__dirname, '../frontend')));
 
 // ルートハンドラの追加
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend', 'index.html'));
 });
 
-// JSONファイルからジョブデータを読み込む
+// フリーワード検索のエンドポイント
 app.get('/api/jobs', (req, res) => {
-    fs.readFile('jobs.json', 'utf8', (err, data) => {
+    const keyword = req.query.keyword;
+    const area = req.query.area;
+    const station = req.query.station;
+    const jobType = req.query.jobType;
+    const jobDuration = req.query.jobDuration;
+    const language = req.query.language || 'ja';
+    
+    const filePath = language === 'en' ? './data/jobs_en.json' : './data/jobs_ja.json';
+    
+    fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
-            console.error('Error reading JSON file:', err);
-            res.status(500).send('Failed to read job data.');
+            res.status(500).send(err.message);
             return;
         }
-        
-        try {
-            const jobs = JSON.parse(data);
-            const filteredJobs = filterJobs(jobs, req.query); // リクエストに応じてフィルタリングする関数を呼び出し
-            
-            res.json(filteredJobs);
-        } catch (error) {
-            console.error('Error parsing JSON:', error);
-            res.status(500).send('Failed to parse job data.');
+
+        let jobs = JSON.parse(data);
+
+        if (keyword) {
+            const keywords = keyword.split(/[ 　]+/);
+            jobs = jobs.filter(job =>
+                keywords.some(word =>
+                    job.title.includes(word) ||
+                    job.description.includes(word) ||
+                    job.area.includes(word) ||
+                    job.station.includes(word) ||
+                    job.job_type.includes(word)
+                )
+            );
         }
+
+        if (area) {
+            jobs = jobs.filter(job => job.area === area);
+        }
+        if (station) {
+            jobs = jobs.filter(job => job.station === station);
+        }
+        if (jobType) {
+            jobs = jobs.filter(job => job.job_type === jobType);
+        }
+        if (jobDuration === 'single') {
+            jobs = jobs.filter(job => job.is_single);
+        } else if (jobDuration === 'long') {
+            jobs = jobs.filter(job => !job.is_single);
+        }
+
+        res.json(jobs);
     });
 });
-
-// 関数：リクエストに基づいてジョブをフィルタリングする
-function filterJobs(jobs, filters) {
-    // リクエストパラメータに基づいてフィルタリングロジックを追加する
-    // 例えば、filters.keyword を含むジョブをフィルタリングするなど
-    // 現在の実装はデモ用ですので、実際のフィルタリングロジックに置き換えてください
-    let filteredJobs = jobs;
-
-    // キーワードによるフィルタリング例
-    if (filters.keyword) {
-        filteredJobs = filteredJobs.filter(job =>
-            job.title.includes(filters.keyword) ||
-            job.description.includes(filters.keyword) ||
-            job.area.includes(filters.keyword) ||
-            job.station.includes(filters.keyword) ||
-            job.job_type.includes(filters.keyword)
-        );
-    }
-
-    // 他のフィルタリング条件を追加する場合はここに追加してください
-
-    return filteredJobs;
-}
 
 // エラーハンドリングミドルウェア
 app.use((err, req, res, next) => {
@@ -69,7 +76,7 @@ app.use((err, req, res, next) => {
 app.listen(port, (err) => {
     if (err) {
         console.error('Server start error:', err);
-        process.exit(1); // エラー発生時にプロセスを終了
+        process.exit(1);
     } else {
         console.log(`Server running at http://localhost:${port}`);
     }
