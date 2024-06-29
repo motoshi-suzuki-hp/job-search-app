@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             areaLabel: "Area:",
             stationLabel: "Station:",
             jobTypeLabel: "Job Type:",
+            all: "All",
             singleJob: "Single Job",
             longJob: "Long Job",
             searchButton: "Search"
@@ -20,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             areaLabel: "エリア:",
             stationLabel: "駅名:",
             jobTypeLabel: "職種:",
+            all: "すべて",
             singleJob: "単発バイト",
             longJob: "長期バイト",
             searchButton: "検索"
