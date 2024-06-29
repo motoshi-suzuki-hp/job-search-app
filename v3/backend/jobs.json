@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "title": "カフェスタッフ",
+        "description": "カフェでの接客と清掃業務",
+        "area": "東京",
+        "station": "渋谷",
+        "job_type": "飲食",
+        "is_single": true
+    },
+    {
+        "id": 2,
+        "title": "販売スタッフ",
+        "description": "アパレルショップでの接客とレジ業務",
+        "area": "大阪",
+        "station": "梅田",
+        "job_type": "小売",
+        "is_single": false
+    },
+    {
+        "id": 3,
+        "title": "事務アシスタント",
+        "description": "オフィスでの書類整理と電話対応",
+        "area": "名古屋",
+        "station": "栄",
+        "job_type": "事務",
+        "is_single": true
+    },
+    {
+        "id": 4,
+        "title": "配達ドライバー",
+        "description": "地元エリアでの食品配達",
+        "area": "福岡",
+        "station": "天神",
+        "job_type": "配送",
+        "is_single": false
+    },
+    {
+        "id": 5,
+        "title": "イベントスタッフ",
+        "description": "イベント会場での設営と案内",
+        "area": "札幌",
+        "station": "大通",
+        "job_type": "イベント",
+        "is_single": true
+    },
+    {
+        "id": 6,
+        "title": "看護師",
+        "description": "病院での看護業務",
+        "area": "東京",
+        "station": "新宿",
+        "job_type": "医療",
+        "is_single": false
+    },
+    {
+        "id": 7,
+        "title": "ソフトウェアエンジニア",
+        "description": "Webアプリケーションの開発とテスト",
+        "area": "京都",
+        "station": "四条",
+        "job_type": "IT",
+        "is_single": true
+    }
+]
