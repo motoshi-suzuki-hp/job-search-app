@@ -22,6 +22,23 @@ a:hover {
     color: black;
 }
 
+
+#area-select, #station-select, #job-type-select {
+    margin-top:10px;
+    padding-left: 14px;
+    border-radius: 4px;
+    border: 1px solid #DCDFE6;
+    background: rgba(217, 217, 217, 0);
+    height: 40px;
+    width: 30%;
+    min-width: 200px;
+    font-family: Noto Sans JP;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 16px */
+}
+
 .search {
     padding: 30px 10px 10px;
     text-align: center;

@@ -23,25 +23,33 @@
     <main>
         <div class="search">
             <input type="text" id="search-input" placeholder="検索ワードを入力" data-lang-placeholder="searchPlaceholder">
-            <br>
-            <label for="area-select" id="area-select-label" data-lang="areaLabel">Area:</label>
-            <select id="area-select">
-                <!-- 他のエリアを追加 -->
-            </select>
-            <br>
-            <label for="station-select" id="station-select-label" data-lang="stationLabel">Station:</label>
-            <select id="station-select">
-            </select>
-            <br>
-            <label for="job-type-select" id="job-type-select-label" data-lang="jobTypeLabel">Job Type:</label>
-            <select id="job-type-select">
+            <hr>
+            <div class="area">
+                <label for="area-select" id="area-select-label" data-lang="areaLabel">Area:</label>
+                <select id="area-select">
+                    <!-- 他のエリアを追加 -->
+                </select>
+            </div>
+
+            <div class="station">
+                <label for="station-select" id="station-select-label" data-lang="stationLabel">Station:</label>
+                <select id="station-select">
+                </select>
+            </div>
+
+            <div class="job-type">
+                <label for="job-type-select" id="job-type-select-label" data-lang="jobTypeLabel">Job Type:</label>
+                <select id="job-type-select">
+            </div>
+
                 <!-- 他の職種を追加 -->
             </select>
-            <br>
-            <label data-lang="all"><input type="radio" name="job-duration" value="all" checked> すべて</label>
-            <label data-lang="singleJob"><input type="radio" name="job-duration" value="single"> 単発バイト</label>
-            <label data-lang="longJob"><input type="radio" name="job-duration" value="long"> 長期バイト</label>
-            <br>
+            <div class="job-duration">
+                <label data-lang="all"><input type="radio" name="job-duration" value="all" checked> すべて</label>
+                <label data-lang="singleJob"><input type="radio" name="job-duration" value="single"> 単発バイト</label>
+                <label data-lang="longJob"><input type="radio" name="job-duration" value="long"> 長期バイト</label>
+            </div>
+            <hr>
             <button onclick="searchJobs()" data-lang="searchButton">検索</button>
         </div>
 
