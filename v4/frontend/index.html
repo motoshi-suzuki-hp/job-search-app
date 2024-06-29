@@ -42,13 +42,14 @@
             <label data-lang="singleJob"><input type="radio" name="job-duration" value="single"> 単発バイト</label>
             <label data-lang="longJob"><input type="radio" name="job-duration" value="long"> 長期バイト</label>
             <br>
-            <button onclick="searchJobs()" data-lang="searchButton">検索</button>
+            <button id="search-button" data-lang="searchButton">検索</button>
         </div>
 
         <div id="job-count">
             <h2></h2>
         </div>
         <div id="job-list"></div>
+        <div id="pagination"></div>
     </main>
 
     <script src="./app.js"></script>

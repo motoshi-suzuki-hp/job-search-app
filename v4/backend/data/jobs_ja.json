@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "title": "カフェスタッフ",
+        "description": "カフェでの接客と清掃業務",
+        "area": "東京",
+        "station": "渋谷",
+        "job_type": "飲食",
+        "is_single": true,
+        "image_url": "images/1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "販売スタッフ",
+        "description": "アパレルショップでの接客とレジ業務",
+        "area": "大阪",
+        "station": "梅田",
+        "job_type": "小売",
+        "is_single": false,
+        "image_url": "images/2.jpg"
+    }]

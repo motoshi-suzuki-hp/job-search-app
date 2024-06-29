@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "title": "Cafe Staff",
+        "description": "Customer service and cleaning duties at a cafe",
+        "area": "Tokyo",
+        "station": "Shibuya",
+        "job_type": "Food Service",
+        "is_single": true,
+        "image_url": "images/1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Sales Staff",
+        "description": "Customer service and cashier duties at an apparel shop",
+        "area": "Osaka",
+        "station": "Umeda",
+        "job_type": "Retail",
+        "is_single": false,
+        "image_url": "images/2.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Cafe Staff",
+        "description": "Customer service and cleaning duties at a cafe",
+        "area": "Tokyo",
+        "station": "Shibuya",
+        "job_type": "Food Service",
+        "is_single": true,
+        "image_url": "images/1.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Sales Staff",
+        "description": "Customer service and cashier duties at an apparel shop",
+        "area": "Osaka",
+        "station": "Umeda",
+        "job_type": "Retail",
+        "is_single": false,
+        "image_url": "images/2.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Cafe Staff",
+        "description": "Customer service and cleaning duties at a cafe",
+        "area": "Tokyo",
+        "station": "Shibuya",
+        "job_type": "Food Service",
+        "is_single": true,
+        "image_url": "images/1.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Sales Staff",
+        "description": "Customer service and cashier duties at an apparel shop",
+        "area": "Osaka",
+        "station": "Umeda",
+        "job_type": "Retail",
+        "is_single": false,
+        "image_url": "images/2.jpg"
+    }
+]

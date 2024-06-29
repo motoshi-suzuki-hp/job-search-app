@@ -16,8 +16,6 @@ const jobTypeList_en = ['Food Service', 'Retail', 'Office', 'IT'];
 
 
 function updateAreaJobOptions() {
-    // const toggleSwitch = document.getElementById('language-toggle');
-    
     const language = document.querySelector('input[name="language"]:checked').value;
     const areaSelect = document.getElementById('area-select');
 
@@ -67,10 +65,9 @@ function updateAreaJobOptions() {
 
 function updateStationOptions() {
     // const toggleSwitch = document.getElementById('language-toggle');
-    
     const language = document.querySelector('input[name="language"]:checked').value;
 
-    
+
     const areaSelect = document.getElementById('area-select');
     const stationSelect = document.getElementById('station-select');
     const selectedArea = areaSelect.value;
@@ -104,71 +101,87 @@ function updateStationOptions() {
 
 
 document.addEventListener("DOMContentLoaded", updateAreaJobOptions);
-// document.getElementById('switch-checkbox').addEventListener('click',updateAreaJobOptions, true);
-
+// document.getElementById('language-toggle').addEventListener('click',updateAreaJobOptions, true);
 document.querySelectorAll('input[name="language"]').forEach(radio => {
     radio.addEventListener('change', () => {
         updateAreaJobOptions();
     });
 });
 
+document.getElementById('area-select').addEventListener('change', updateStationOptions);
+let currentPage = 1;
+
 
 document.getElementById('area-select').addEventListener('change', updateStationOptions);
 
-function searchJobs() {
+function searchJobs(page = 1) {
     const keyword = document.getElementById('search-input').value;
     const area = document.getElementById('area-select').value;
     const station = document.getElementById('station-select').value;
     const jobType = document.getElementById('job-type-select').value;
     const jobDuration = document.querySelector('input[name="job-duration"]:checked').value;
-    // const language = document.getElementById('language-toggle').checked ? 'ja' : 'en';
-    const language = document.querySelector('input[name="language"]:checked').value;
-
-    fetch(`/api/jobs?keyword=${keyword}&area=${area}&station=${station}&jobType=${jobType}&jobDuration=${jobDuration}&language=${language}`)
-        .then(response => response.json())
-        .then(data => displayJobs(data));
-}
-
-
-function displayJobs(jobs) {
-    // const toggleSwitch = document.getElementById('language-toggle');
+    const toggleSwitch = document.getElementById('language-toggle');
     // const language = toggleSwitch.checked ? 'ja' : 'en';
 
+    const language = document.querySelector('input[name="language"]:checked').value;
+
+    fetch(`/api/jobs?keyword=${keyword}&area=${area}&station=${station}&jobType=${jobType}&jobDuration=${jobDuration}&page=${page}&language=${language}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            displayJobs(data.jobs);
+            updatePagination(data.totalPages, data.currentPage);
+        });
+}
+
+function displayJobs(jobs) {
+    const jobList = document.getElementById('job-list');
+    // const toggleSwitch = document.getElementById('language-toggle');
+    // const language = toggleSwitch.checked ? 'ja' : 'en';
     const language = document.querySelector('input[name="language"]:checked').value;
 
     const jobCount = document.getElementById('job-count');
     jobCount.firstElementChild.innerText = language === 'ja' ? jobs.length + '件の求人が見つかりました' : jobs.length + ' jobs found';
 
-    const jobList = document.getElementById('job-list'); // 結果を表示するための要素を取得
+    
     jobList.innerHTML = '';
     jobs.forEach(job => {
         const jobItem = document.createElement('div');
         jobItem.className = 'job-item';
         
         jobItem.innerHTML = `
-            <a href="/job?id=${job.id}&language=${language}">
-                <div class="job-item-inner">
-                    <div class="job-item-text">
-                        <h2>${job.title}</h2>
-                        <p>${job.description}</p>
-                        <p><strong>${language === 'ja' ? 'エリア' : 'Area'}:</strong> ${job.area}</p>
-                        <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
-                        <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
-                        <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Type'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
-                    </div>
-                    <div class="job-item-image">
-                        <img src="${job.image_url}" alt="${job.title}" class="job-image">
-                    </div>
-                </div>
-            </a>
+            <img src="${job.image_url}" alt="${job.title}" class="job-image">
+            <h2>${job.title}</h2>
+            <p>${job.description}</p>
+            <p><strong>${language === 'ja' ? 'エリア' : 'Area'}:</strong> ${job.area}</p>
+            <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
+            <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
+            <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Type'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
+            <a href="job_details.html?id=${job.id}&language=${language}">${language === 'ja' ? '詳細を見る' : 'View Details'}</a>
         `;
         
         jobList.appendChild(jobItem);
     });
 }
 
-// document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-//     checkbox.addEventListener('change', function() {
-//       localStorage.setItem(this.name, this.checked);
-//     });
-//   });
+function updatePagination(totalPages, currentPage) {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+        const pageItem = document.createElement('button');
+        pageItem.textContent = i;
+        pageItem.disabled = i === currentPage;
+        pageItem.addEventListener('click', () => searchJobs(i));
+        pagination.appendChild(pageItem);
+    }
+}
+
+document.getElementById('search-button').addEventListener('click', () => {
+    currentPage = 1;
+    searchJobs(currentPage);
+});
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     searchJobs(currentPage);
+// });
