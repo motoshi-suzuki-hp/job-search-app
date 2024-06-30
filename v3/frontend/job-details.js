@@ -7,9 +7,12 @@ function fetchData(jobId, language) {
             return;
         }
 
-        const jobDetails = `
-            <img src="${job.image_url}" alt="${job.title}" class="job-image">
+        const jobTitle = `
             <h2>${job.title}</h2>
+        `;
+        document.getElementById('job-title').innerHTML = jobTitle;
+
+        const jobDetails = `
             <p>${job.description}</p>
             <p><strong>${language === 'ja' ? 'エリア' : 'Area'}:</strong> ${job.area}</p>
             <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
@@ -17,6 +20,9 @@ function fetchData(jobId, language) {
             <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Type'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
         `;
         document.getElementById('job-details').innerHTML = jobDetails;
+
+
+        
     });
 }
 
@@ -25,10 +31,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let language = new URLSearchParams(window.location.search).get('language');
     // const toggleSwitch = document.getElementById('language-toggle');
     const switchCheckbox = document.getElementById('switch-checkbox');
+    const switchCheckboxEn = document.getElementById('switch-checkbox-en');
+    const switchCheckboxJa = document.getElementById('switch-checkbox-ja');
 
     if (language === 'ja') {
-        // toggleSwitch.checked = true;
-        switchCheckbox.lastChild.firstChild.checked = true;
+        // toggleSwitch.checked = true;]
+        switchCheckboxJa.checked = true;
     }
     fetchData(jobId, language);
 

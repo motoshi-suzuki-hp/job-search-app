@@ -5,9 +5,9 @@
         "description": "Customer service and cleaning duties at a cafe",
         "area": "Tokyo",
         "station": "Shibuya",
-        "job_type": "Food Service",
+        "job_type": "Food",
         "is_single": true,
-        "image_url": "images/1.jpg"
+        "image_urls": ["images/1.jpg", "images/0.jpg"]
     },
     {
         "id": 2,
@@ -17,7 +17,7 @@
         "station": "Umeda",
         "job_type": "Retail",
         "is_single": false,
-        "image_url": "images/2.jpg"
+        "image_urls": ["images/2.jpg", "images/0.jpg"]
     },
     {
         "id": 3,
@@ -27,7 +27,7 @@
         "station": "Shinjuku",
         "job_type": "Office Work",
         "is_single": true,
-        "image_url": "images/3.jpg"
+        "image_urls": ["images/3.jpg", "images/0.jpg"]
     },
     {
         "id": 4,
@@ -37,7 +37,7 @@
         "station": "Namba",
         "job_type": "Hospitality",
         "is_single": false,
-        "image_url": "images/4.jpg"
+        "image_urls": ["images/4.jpg", "images/0.jpg"]
     },
     {
         "id": 5,
@@ -47,7 +47,7 @@
         "station": "Shinagawa",
         "job_type": "IT",
         "is_single": true,
-        "image_url": "images/5.jpg"
+        "image_urls": ["images/5.jpg", "images/0.jpg"]
     },
     {
         "id": 6,
@@ -55,9 +55,9 @@
         "description": "Customer service and food serving at a restaurant",
         "area": "Osaka",
         "station": "Shinsaibashi",
-        "job_type": "Food Service",
+        "job_type": "Food",
         "is_single": false,
-        "image_url": "images/6.jpg"
+        "image_urls": ["images/6.jpg", "images/0.jpg"]
     },
     {
         "id": 7,
@@ -67,7 +67,7 @@
         "station": "Roppongi",
         "job_type": "Sales",
         "is_single": true,
-        "image_url": "images/7.jpg"
+        "image_urls": ["images/7.jpg", "images/0.jpg"]
     },
     {
         "id": 8,
@@ -77,17 +77,17 @@
         "station": "Tennoji",
         "job_type": "Beauty",
         "is_single": false,
-        "image_url": "images/8.jpg"
+        "image_urls": ["images/8.jpg", "images/0.jpg"]
     },
     {
         "id": 9,
         "title": "Warehouse Worker",
         "description": "Product shipping and inventory management",
         "area": "Tokyo",
-        "station": "Kasai",
-        "job_type": "Logistics",
+        "station": "Ueno",
+        "job_type": "Light work",
         "is_single": true,
-        "image_url": "images/9.jpg"
+        "image_urls": ["images/9.jpg", "images/0.jpg"]
     },
     {
         "id": 10,
@@ -97,6 +97,6 @@
         "station": "Tsuruhashi",
         "job_type": "Education",
         "is_single": false,
-        "image_url": "images/10.jpg"
+        "image_urls": ["images/10.jpg", "images/0.jpg"]
     }
 ]

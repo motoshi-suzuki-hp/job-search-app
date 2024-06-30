@@ -1,17 +1,17 @@
 const areaStationMap_ja = {
-    "東京": ["渋谷", "新宿"],
-    "大阪": ["梅田"],
+    "東京": ["渋谷", "新宿", "品川", "六本木", "上野"],
+    "大阪": ["梅田", "難波", "心斎橋","天王寺", "鶴橋"],
     // 他のエリアと駅名を追加
 };
 
 const areaStationMap_en = {
-    "Tokyo": ["Shibuya", "Shinjuku"],
-    "Osaka": ["Umeda"],
+    "Tokyo": ["Shibuya", "Shinjuku", "Shinagawa", "Roppongi", "Ueno"],
+    "Osaka": ["Umeda", "Namba", "Shinsaibashi", "Tennoji", "Tsuruhashi"],
     // 他のエリアと駅名を追加
 };
 
-const jobTypeList_ja = ['飲食', '小売', '事務', 'IT'];
-const jobTypeList_en = ['Food Service', 'Retail', 'Office', 'IT'];
+const jobTypeList_ja = ['飲食', '小売', '事務', 'IT', '美容', '営業', '教育', 'サービス', '軽作業'];
+const jobTypeList_en = ['Food', 'Retail', 'Office', 'IT', 'Beauty', 'Sales', 'Education', 'Hospitality', 'Light work'];
 
 
 
@@ -157,7 +157,7 @@ function displayJobs(jobs) {
                         <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Type'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
                     </div>
                     <div class="job-item-image">
-                        <img src="${job.image_url}" alt="${job.title}" class="job-image">
+                        <img src="${job.image_urls[0]}" alt="${job.title}" class="job-image">
                     </div>
                 </div>
             </a>

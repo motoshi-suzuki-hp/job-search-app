@@ -7,7 +7,7 @@
         "station": "渋谷",
         "job_type": "飲食",
         "is_single": true,
-        "image_url": "images/1.jpg"
+        "image_urls": ["images/1.jpg", "images/0.jpg"]
     },
     {
         "id": 2,
@@ -17,7 +17,7 @@
         "station": "梅田",
         "job_type": "小売",
         "is_single": false,
-        "image_url": "images/2.jpg"
+        "image_urls": ["images/2.jpg", "images/0.jpg"]
     },
     {
         "id": 3,
@@ -27,7 +27,7 @@
         "station": "新宿",
         "job_type": "オフィスワーク",
         "is_single": true,
-        "image_url": "images/3.jpg"
+        "image_urls": ["images/3.jpg", "images/0.jpg"]
     },
     {
         "id": 4,
@@ -37,7 +37,7 @@
         "station": "難波",
         "job_type": "サービス",
         "is_single": false,
-        "image_url": "images/4.jpg"
+        "image_urls": ["images/4.jpg", "images/0.jpg"]
     },
     {
         "id": 5,
@@ -47,7 +47,7 @@
         "station": "品川",
         "job_type": "IT",
         "is_single": true,
-        "image_url": "images/5.jpg"
+        "image_urls": ["images/5.jpg", "images/0.jpg"]
     },
     {
         "id": 6,
@@ -57,7 +57,7 @@
         "station": "心斎橋",
         "job_type": "飲食",
         "is_single": false,
-        "image_url": "images/6.jpg"
+        "image_urls": ["images/6.jpg", "images/0.jpg"]
     },
     {
         "id": 7,
@@ -67,7 +67,7 @@
         "station": "六本木",
         "job_type": "営業",
         "is_single": true,
-        "image_url": "images/7.jpg"
+        "image_urls": ["images/7.jpg", "images/0.jpg"]
     },
     {
         "id": 8,
@@ -77,17 +77,17 @@
         "station": "天王寺",
         "job_type": "美容",
         "is_single": false,
-        "image_url": "images/8.jpg"
+        "image_urls": ["images/8.jpg", "images/0.jpg"]
     },
     {
         "id": 9,
         "title": "倉庫作業員",
         "description": "商品の入出荷と在庫管理",
         "area": "東京",
-        "station": "葛西",
-        "job_type": "物流",
+        "station": "上野",
+        "job_type": "軽作業",
         "is_single": true,
-        "image_url": "images/9.jpg"
+        "image_urls": ["images/9.jpg", "images/0.jpg"]
     },
     {
         "id": 10,
@@ -97,6 +97,6 @@
         "station": "鶴橋",
         "job_type": "教育",
         "is_single": false,
-        "image_url": "images/10.jpg"
+        "image_url": ["images/10.jpg", "images/0.jpg"]
     }
 ]

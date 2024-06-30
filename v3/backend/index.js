@@ -72,6 +72,7 @@ app.get('/job', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend', 'job-details.html'));
 });
 
+
 // 詳細データ取得のAPIエンドポイント
 app.get('/api/job/:id', (req, res) => {
     const jobId = parseInt(req.params.id, 10);
