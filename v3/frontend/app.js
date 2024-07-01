@@ -8,29 +8,41 @@ document.addEventListener('DOMContentLoaded', () => {
             headerText: "Job Search App",
             language: "Language",
             searchPlaceholder: "Enter search keyword",
-            areaLabel: "Area:",
-            stationLabel: "Station:",
-            jobTypeLabel: "Job Type:",
+            areaLabel: "Area",
+            stationLabel: "Station",
+            jobTypeLabel: "Job Type",
             all: "All",
             singleJob: "Single Job",
             longJob: "Long Job",
             searchButton: "Search",
 
             headerTextDetail: "Job Details",
+
+            companyInfo: "Company Information",
+            access: "Access",
+            society: "Society",
+            personalInfo: "Personal Information",
+            contact: "Contact"
         },
         ja: {
             headerText: "バイト検索アプリ",
             language: "言語",
             searchPlaceholder: "検索ワードを入力",
-            areaLabel: "エリア:",
-            stationLabel: "駅名:",
-            jobTypeLabel: "職種:",
+            areaLabel: "エリア",
+            stationLabel: "駅名",
+            jobTypeLabel: "職種",
             all: "すべて",
             singleJob: "単発バイト",
             longJob: "長期バイト",
             searchButton: "検索",
 
-            headerTextDetail: "求人詳細"
+            headerTextDetail: "求人詳細",
+
+            companyInfo: "企業情報",
+            access: "アクセス",
+            society: "社会的な取り組み",
+            personalInfo: "個人情報保護方針",
+            contact: "お問い合わせ",
         }
     };
 

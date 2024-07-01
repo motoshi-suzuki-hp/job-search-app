@@ -106,9 +106,12 @@ function updateStationOptions() {
 document.addEventListener("DOMContentLoaded", updateAreaJobOptions);
 // document.getElementById('switch-checkbox').addEventListener('click',updateAreaJobOptions, true);
 
+
+var searchJobsFlag = false;
 document.querySelectorAll('input[name="language"]').forEach(radio => {
     radio.addEventListener('change', () => {
         updateAreaJobOptions();
+        if (searchJobsFlag) searchJobs();
     });
 });
 
@@ -116,6 +119,7 @@ document.querySelectorAll('input[name="language"]').forEach(radio => {
 document.getElementById('area-select').addEventListener('change', updateStationOptions);
 
 function searchJobs() {
+    searchJobsFlag = true;
     const keyword = document.getElementById('search-input').value;
     const area = document.getElementById('area-select').value;
     const station = document.getElementById('station-select').value;
@@ -150,7 +154,7 @@ function displayJobs(jobs) {
                 <div class="job-item-inner">
                     <div class="job-item-text">
                         <h2>${job.title}</h2>
-                        <p>${job.description}</p>
+                        <p>${job.summary}</p>
                         <p><strong>${language === 'ja' ? 'エリア' : 'Area'}:</strong> ${job.area}</p>
                         <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
                         <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
