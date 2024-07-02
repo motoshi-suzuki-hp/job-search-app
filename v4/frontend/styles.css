@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #4258ab;
+    background-color: black;
     color: white;
     padding: 10px;
     text-align: center;
@@ -79,7 +79,7 @@ button {
 }
 
 .search-button {
-    background-color: #4258ab;
+    background-color: black;
     color: white;
     border-radius: 30px;
     padding: 10px 30px;
@@ -199,7 +199,7 @@ button {
 
 /* footer */
 footer {
-    background-color: #4258ab;
+    background-color: black;
 }
 .footer-inner {
     padding: 30px 0 30px;
@@ -238,4 +238,70 @@ footer {
     font-size: 0.7em;
     color: white;
     text-align: center;
+}
+
+
+
+/* いいね */
+.likeButton {
+    color: #888;
+    font-size: 1.5em;
+    background-color: transparent;
+    border: 0.1em solid;
+    border-radius: 1em;
+    padding: 0.333em 1em 0.25em;
+    line-height: 1.2em;
+    box-shadow: 0 0.25em 1em -0.25em;
+    cursor: pointer;
+    transition: color 150ms ease-in-out, background-color 150ms ease-in-out, transform 150ms ease-in-out;
+    outline: 0;
+}
+
+.likeButton__icon {
+    display: inline-block;
+    fill: currentColor;
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 0.2em;
+}
+
+.likeButton:hover {
+    color: #e5348c;
+}
+.likeButton.liked {
+    color: #ffffff;
+    background-color: #e5348c;
+    border-color: #e5348c;
+}
+
+.unlikeButton {
+    color: #ffffff;
+    font-size: 1.5em;
+    background-color: #e5348c;
+    border: 0.1em solid #e5348c;
+    border-radius: 1em;
+    padding: 0.333em 1em 0.25em;
+    line-height: 1.2em;
+    box-shadow: 0 0.25em 1em -0.25em;
+    cursor: pointer;
+    transition: color 150ms ease-in-out, background-color 150ms ease-in-out, transform 150ms ease-in-out;
+    outline: 0;
+}
+
+.unlikeButton__icon {
+    display: inline-block;
+    fill: currentColor;
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 0.2em;
+}
+
+.unlikeButton:hover {
+    color: #e5348c;
+    background-color: transparent;
+}
+.unlikeButton.unliked {
+    color: #888;
+    background-color: transparent;
+    border-color: default;
 }
