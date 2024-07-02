@@ -22,7 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
             access: "Access",
             society: "Society",
             personalInfo: "Personal Information",
-            contact: "Contact"
+            contact: "Contact",
+
+            apply: "Apply Now"
         },
         ja: {
             headerText: "バイト検索アプリ",
@@ -43,6 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
             society: "社会的な取り組み",
             personalInfo: "個人情報保護方針",
             contact: "お問い合わせ",
+
+            apply: "応募する"
         }
     };
 
