@@ -170,9 +170,3 @@ function displayJobs(jobs) {
         jobList.appendChild(jobItem);
     });
 }
-
-// document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-//     checkbox.addEventListener('change', function() {
-//       localStorage.setItem(this.name, this.checked);
-//     });
-//   });
