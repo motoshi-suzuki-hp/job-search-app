@@ -14,7 +14,7 @@ const jobTypeList_ja = ['飲食', '小売', '事務', 'IT', '美容', '営業', 
 const jobTypeList_en = ['Food', 'Retail', 'Office', 'IT', 'Beauty', 'Sales', 'Education', 'Hospitality', 'Light work'];
 
 
-
+// 言語切替
 function updateAreaJobOptions() {
     // const toggleSwitch = document.getElementById('language-toggle');
     
@@ -65,6 +65,7 @@ function updateAreaJobOptions() {
 
 }
 
+// エリアが変更されたときに駅名のオプションを更新
 function updateStationOptions() {
     // const toggleSwitch = document.getElementById('language-toggle');
     
@@ -118,6 +119,7 @@ document.querySelectorAll('input[name="language"]').forEach(radio => {
 
 document.getElementById('area-select').addEventListener('change', updateStationOptions);
 
+
 function searchJobs() {
     searchJobsFlag = true;
     const keyword = document.getElementById('search-input').value;
@@ -134,39 +136,91 @@ function searchJobs() {
 }
 
 
+// 絞り込み結果の表示
 function displayJobs(jobs) {
     // const toggleSwitch = document.getElementById('language-toggle');
     // const language = toggleSwitch.checked ? 'ja' : 'en';
+    fetch(`/api/favorites`)
+        .then(response => response.json())
+        .then(data => {
 
-    const language = document.querySelector('input[name="language"]:checked').value;
+            var favoriteList = data[0].favorites;
+            
+            console.log(favoriteList);
+            const language = document.querySelector('input[name="language"]:checked').value;
 
-    const jobCount = document.getElementById('job-count');
-    jobCount.firstElementChild.innerText = language === 'ja' ? jobs.length + '件の求人が見つかりました' : jobs.length + ' jobs found';
+            const jobCount = document.getElementById('job-count');
+            jobCount.firstElementChild.innerText = language === 'ja' ? jobs.length + '件の求人が見つかりました' : jobs.length + ' jobs found';
 
-    const jobList = document.getElementById('job-list'); // 結果を表示するための要素を取得
-    jobList.innerHTML = '';
-    jobs.forEach(job => {
-        const jobItem = document.createElement('div');
-        jobItem.className = 'job-item';
-        
-        jobItem.innerHTML = `
-            <a href="/job?id=${job.id}&language=${language}">
-                <div class="job-item-inner">
-                    <div class="job-item-text">
-                        <h2>${job.title}</h2>
-                        <p>${job.summary}</p>
-                        <p><strong>${language === 'ja' ? 'エリア' : 'Area'}:</strong> ${job.area}</p>
-                        <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
-                        <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
-                        <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Type'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
-                    </div>
-                    <div class="job-item-image">
-                        <img src="${job.image_urls[0]}" alt="${job.title}" class="job-image">
-                    </div>
-                </div>
-            </a>
-        `;
-        
-        jobList.appendChild(jobItem);
+            const jobList = document.getElementById('job-list'); // 結果を表示するための要素を取得
+            jobList.innerHTML = '';
+            jobs.forEach(job => {
+                const jobItem = document.createElement('div');
+                jobItem.className = 'job-item';
+                
+                jobItem.innerHTML = `
+                    <a href="/job?id=${job.id}&language=${language}">
+                        <div class="job-item-inner">
+                            <div class="job-item-text">
+                                <h2>${job.title}</h2>
+                                <p>${job.summary}</p>
+                                <p><strong>${language === 'ja' ? 'エリア' : 'Area'}:</strong> ${job.area}</p>
+                                <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
+                                <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
+                                <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Type'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
+                                </div>
+                            <div class="job-item-image">
+                                <img src="${job.image_urls[0]}" alt="${job.title}" class="job-image">
+                            </div>
+
+                        </div>
+
+                    </a>
+
+                `;
+
+
+                const faboriteButtonDiv = document.createElement('div');
+                faboriteButtonDiv.id = 'favorite-button-' + job.id;
+                if (favoriteList.includes(job.id)) {
+                    faboriteButtonDiv.innerHTML = `
+                        <button onclick="">${language === 'ja' ? 'お気に入りから削除' : 'Remove from favorites'}</button>
+                    `
+                } else {
+                    faboriteButtonDiv.innerHTML = `
+                        <button onclick="addToFavorites(${job.id})">${language === 'ja' ? 'お気に入りに追加' : 'Add to favorites'}</button>
+                    `
+                }
+                jobItem.appendChild(faboriteButtonDiv);
+                
+                jobList.appendChild(jobItem);
+            });
+        });
+
+}
+
+
+
+
+// お気に入り
+function addToFavorites(jobId) {
+    console.log(jobId);
+    fetch(`/add_to_favorites`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({job_id: jobId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('お気に入りに追加しました');
+        } else {
+            alert('エラーが発生しました');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
 }

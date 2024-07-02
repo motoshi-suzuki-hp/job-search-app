@@ -2,15 +2,14 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const app = express();
-const port = 3000; 
+const port = 3000;
 
 // ミドルウェアの設定
 app.use(express.json());
-
-// 静的ファイルの提供
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-
+// 静的ファイルの提供
+// app.use(express.static(path.join(__dirname, '../frontend')));
 
 // ルートハンドラの追加
 app.get('/', (req, res) => {
@@ -72,7 +71,6 @@ app.get('/job', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend', 'job-details.html'));
 });
 
-
 // 詳細データ取得のAPIエンドポイント
 app.get('/api/job/:id', (req, res) => {
     const jobId = parseInt(req.params.id, 10);
@@ -95,17 +93,98 @@ app.get('/api/job/:id', (req, res) => {
     });
 });
 
+
+
+// お気に入り機能の設定
+const filePath_users = path.join(__dirname, 'data', 'users.json');
+
+// ユーザーデータ用のJSONファイルが存在しない場合は作成
+if (!fs.existsSync(filePath_users)) {
+    fs.writeFileSync(filePath_users, JSON.stringify({ users: [] }, null, 4));
+}
+
+// ユーザーデータの読み込み
+function loadUserData(filePath, callback) {
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            return callback(err);
+        }
+        try {
+            const jsonData = JSON.parse(data);
+            callback(null, jsonData);
+        } catch (err) {
+            callback(err);
+        }
+    });
+}
+
+// ユーザーデータの保存
+function saveUserData(filePath, data, callback) {
+    const jsonData = JSON.stringify(data, null, 4);
+    fs.writeFile(filePath, jsonData, 'utf8', callback);
+}
+
+// お気に入りに追加する関数
+function addToFavorites(jobId, filePath, callback) {
+    loadUserData(filePath, (err, data) => {
+        if (err) {
+            return callback(err);
+        }
+
+        data[0].favorites.push(jobId);
+
+        saveUserData(filePath, data, callback);
+    });
+}
+
+// APIエンドポイント
+app.post('/add_to_favorites', (req, res) => {
+
+    const job_id = req.body.job_id;
+    console.log(filePath_users);
+    addToFavorites(job_id, filePath_users, (err) => {
+        if (err) {
+            console.log(err);
+            return res.status(500).json({ success: false, message: 'エラーが発生しました' });
+        }
+        res.json({ success: true });
+    });
+});
+
+
+
+// お気に入り取得のAPIエンドポイント
+app.get('/api/favorites', (req, res) => {
+
+    fs.readFile(filePath_users, 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send('Failed to read job data.');
+            return;
+        }
+        const favorites = JSON.parse(data);
+
+        if (!favorites) {
+            res.status(404).send('Job not found.');
+            return;
+        }
+        res.json(favorites);
+    });
+});
+
+
+
+
 // Custom 404 page
 app.use((req, res) => {
     res.status(404).sendFile(path.join(__dirname, '../frontend', '404.html'));
 });
-
 
 // エラーハンドリングミドルウェア
 app.use((err, req, res, next) => {
     console.error('Unhandled error:', err);
     res.status(500).send('Something went wrong!');
 });
+
 
 // サーバーの起動
 app.listen(port, (err) => {

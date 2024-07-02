@@ -46,13 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // toggleSwitch.addEventListener('change', () => {
-    //     if (toggleSwitch.checked) {
-    //         setLanguage('ja');
-    //     } else {
-    //         setLanguage('en');
-    //     }
-    // });
 
     languageRadios.forEach(radio => {
         radio.addEventListener('change', () => {
