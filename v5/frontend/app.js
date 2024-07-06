@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const languageRadios = document.querySelectorAll('input[name="language"]');
 
@@ -7,11 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
             language: "Language",
             searchPlaceholder: "Enter search keyword",
             areaLabel: "Area",
+            cityLabel: "City",
+            lineLabel: "Line",
             stationLabel: "Station",
             jobTypeLabel: "Job Type",
+
+            jobDateLabel: "Job Date",
             all: "All",
             singleJob: "Single Job",
             longJob: "Long Job",
+
+
             searchButton: "Search",
 
             headerTextDetail: "Job Details",
@@ -22,15 +30,33 @@ document.addEventListener('DOMContentLoaded', () => {
             personalInfo: "Personal Information",
             contact: "Contact",
 
-            apply: "Apply Now"
+            apply: "Apply Now",
+
+            headerTextMypage: "Mypage",
+
+
+            updateName: "Name",
+            updateEmail: "Email",
+            updateBio: "Biography",
+            updateJapaneseLevel: "Japanese Level",
+            updateEnglishLevel: "English Level",
+            updateProfilePicture: "Profile Picture",
+
+            mypage: "Mypage",
+            updateDocument: "Update Information",
+            mypageFavoriteJobs: "Favorite Jobs",
         },
         ja: {
             headerText: "バイト検索アプリ",
             language: "言語",
             searchPlaceholder: "検索ワードを入力",
             areaLabel: "エリア",
+            cityLabel: "市区",
+            lineLabel: "路線",
             stationLabel: "駅名",
             jobTypeLabel: "職種",
+            jobDateLabel: "日付",
+            
             all: "すべて",
             singleJob: "単発バイト",
             longJob: "長期バイト",
@@ -44,7 +70,22 @@ document.addEventListener('DOMContentLoaded', () => {
             personalInfo: "個人情報保護方針",
             contact: "お問い合わせ",
 
-            apply: "応募する"
+            apply: "応募する",
+
+            headerTextMypage: "マイページ",
+
+
+            updateName: "名前",
+            updateEmail: "メールアドレス",
+            updateBio: "自己紹介",
+            updateJapaneseLevel: "日本語能力",
+            updateEnglishLevel: "英語能力",
+            updateProfilePicture: "プロフィール写真",
+
+            mypage: "マイページ",
+            updateDocument: "情報更新",
+            mypageFavoriteJobs: "お気に入りのバイト",
+
         }
     };
 
@@ -79,9 +120,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ページロード時のデフォルト言語を設定
 
-    let language = new URLSearchParams(window.location.search).get('language');
+    let language = sessionStorage.getItem('language');
     if (language == null) {
         setLanguage('en'); // 日本語をデフォルトにする場合
+        sessionStorage.setItem('language', 'en');
     } else {
         setLanguage(language);
     }

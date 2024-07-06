@@ -1,4 +1,4 @@
-function fetchData(jobId, language) {
+function fetchJobData(jobId, language) {
     fetch(`/api/job/${jobId}?language=${language}`)
     .then(response => response.json())
     .then(job => {
@@ -22,14 +22,17 @@ function fetchData(jobId, language) {
 
 
         const jobDetails = `
-            <p class="job-description">${job.description}</p>
-            <p><strong>${language === 'ja' ? '企業名' : 'Company Name'}:</strong> ${job.name}</p>
-            <p><strong>${language === 'ja' ? '時給' : 'Hourly Wage'}:</strong> ${job.wage} ${language === 'ja' ? '円' : 'yen'}</p>
-            <p><strong>${language === 'ja' ? 'エリア' : 'Area'}:</strong> ${job.area}</p>
-            <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
-            <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
-            <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duaration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
-
+            <div class="job-conditions">
+                <p class="job-description">${job.description}</p>
+                <p><strong>${language === 'ja' ? '企業名' : 'Company Name'}:</strong> ${job.name}</p>
+                <p><strong>${language === 'ja' ? '時給' : 'Hourly Wage'}:</strong> ${job.wage} ${language === 'ja' ? '円' : 'yen'}</p>
+                <p><strong>${language === 'ja' ? 'エリア' : 'Area'}:</strong> ${job.area}</p>
+                <p><strong>${language === 'ja' ? '市区' : 'City'}:</strong> ${job.city}</p>
+                <p><strong>${language === 'ja' ? '路線' : 'Line'}:</strong> ${job.line}</p>
+                <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
+                <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
+                <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duaration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
+            </div>
         `;
         document.getElementById('job-details').innerHTML = jobDetails;
 
@@ -77,10 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const switchCheckboxJa = document.getElementById('switch-checkbox-ja');
 
     if (language === 'ja') {
-        // toggleSwitch.checked = true;]
         switchCheckboxJa.checked = true;
     }
-    fetchData(jobId, language);
+    fetchJobData(jobId, language);
 
 
     document.querySelectorAll('input[name="language"]').forEach(radio => {
@@ -90,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 language = 'ja';
             }
-            fetchData(jobId, language);
+            fetchJobData(jobId, language);
         });
     });
 

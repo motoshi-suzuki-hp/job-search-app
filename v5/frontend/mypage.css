@@ -1,0 +1,54 @@
+.mypage-inner {
+    margin: 50px 10vw;
+    /* padding: 10px; */
+
+}
+
+#user-data {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-image {
+    width: 30%;
+    height: auto;
+    margin: 0;
+}
+.user-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.user-text {
+    width: 65%;
+    height: auto;
+}
+
+.update-button {
+    margin: 20px auto 50px;
+    width: fit-content;
+    height: auto;
+}
+
+.update-button a {
+    display: block;
+    border: 0.11em solid #011627;
+    background-color: #011627;
+    color: white;
+    padding: 0.333em 1em 0.25em;
+    font-size: 1.5em;
+    border-radius: 1em;
+    line-height: 1.2em;
+}
+
+.update-button a:hover {
+    background-color: white;
+    color: #011627;
+    transition: .3s;
+
+}
+
+.favoriteJobs-subtitle {
+    
+}

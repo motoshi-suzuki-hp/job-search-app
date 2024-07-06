@@ -27,8 +27,33 @@ li {
     list-style-type: none;
 }
 
+.header-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    vertical-align: middle;
+}
 
-#area-select, #station-select, #job-type-select {
+#header-text {
+    color: white;
+}
+
+.header-mypage-button {
+    height: fit-content;
+    margin: auto 0;
+}
+
+.header-mypage-button a {
+    color: white;
+}
+
+#switch-checkbox {
+    height: fit-content;
+    margin: auto 0;
+}
+
+
+#area-select, #city-select, #line-select, #station-select, #job-type-select {
     margin-top:10px;
     padding-left: 14px;
     border-radius: 4px;
@@ -137,10 +162,7 @@ button {
     /* padding: 30px 10px 10px; */
 }
 
-#job-title, #job-mv, #job-details, #job-images, #job-map {
-    margin: auto 10vw;
-    padding: 20px;
-}
+
 
 #job-title h2 {
     font-size: 40px;
@@ -160,6 +182,20 @@ button {
     padding: 20px;
 }
 
+
+/* details */
+
+#job-title {
+    padding: 20px;
+}
+
+#job-images-title {
+    padding: 20px;
+}
+
+#job-mv {
+    padding: 20px;
+}
 
 #job-images-list {
     display: grid;
@@ -231,36 +267,13 @@ footer {
 }
 
 
-/* 投稿ボタン */
-
-.apply-button {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-    /* width: fit-content;
-    height: auto; */
-    padding: 10px 20px;
-    /* line-height:70px; */
-    color:white;
-    /* font-weight: bold; */
-    font-size: 30px;
-    background: black;
-    border-radius: 90px;
-    text-align: center;
-}
-
-.apply-button p {
-    /* width: fit-content; */
-    /* height: 1em; */
-    margin-bottom: 0 !important;
-}
 
 
 
 
 /* いいね */
 .likeButton {
-    color: #888;
+    color: #a4a9ad;
     font-size: 1.5em;
     background-color: transparent;
     border: 0.1em solid;
@@ -282,19 +295,19 @@ footer {
 }
 
 .likeButton:hover {
-    color: #e5348c;
+    color: #ff3366;
 }
 .likeButton.liked {
     color: #ffffff;
-    background-color: #e5348c;
-    border-color: #e5348c;
+    background-color: #ff3366;
+    border-color: #ff3366;
 }
 
 .unlikeButton {
     color: #ffffff;
     font-size: 1.5em;
-    background-color: #e5348c;
-    border: 0.1em solid #e5348c;
+    background-color: #ff3366;
+    border: 0.1em solid #ff3366;
     border-radius: 1em;
     padding: 0.333em 1em 0.25em;
     line-height: 1.2em;
@@ -313,11 +326,11 @@ footer {
 }
 
 .unlikeButton:hover {
-    color: #e5348c;
+    color: #ff3366;
     background-color: transparent;
 }
 .unlikeButton.unliked {
-    color: #888;
+    color: #a4a9ad;
     background-color: transparent;
     border-color: default;
 }
