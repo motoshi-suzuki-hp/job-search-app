@@ -3,14 +3,18 @@
         "user_id": 1,
         "favoriteJobs": [
             1,
-            3
+            2
         ],
-        "name": "a",
-        "email": "bigen@example.com",
+        "appliedJobs": [
+            1,
+            2
+        ],
+        "name": "",
+        "email": "",
         "japaneseLevel": "native",
         "englishLevel": "native",
         "profilePicture": "/uploads/images/1720257599195.jpg",
-        "bio": "a",
+        "bio": "",
         "resume": "/uploads/documents/1720257599197.pdf"
     }
 ]

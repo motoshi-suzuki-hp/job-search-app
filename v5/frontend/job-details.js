@@ -45,7 +45,7 @@ function fetchJobData(jobId, language) {
             if (index == 0) {
                 return;
             }
-            console.log(index);
+            // console.log(index);
             const jobImage = document.createElement('li');
             jobImage.innerHTML = `
                 <img src="${url}" alt="${job.title}" class="job-image">
@@ -67,6 +67,32 @@ function fetchJobData(jobId, language) {
             width="600"
             height="450"></iframe>
         `;
+
+        fetch(`/api/userData`)
+        .then(response => response.json())
+        .then(data => {
+
+            // console.log(data[0].appliedJobs.includes(jobId));
+
+            if (data[0].appliedJobs.includes(parseInt(jobId))) {
+                const applyJobButton = document.getElementById('applyJob-button');
+                applyJobButton.innerHTML = `
+                    <button class="applyJobButton">
+                        ${language === 'ja' ? '応募済' : 'Applied'}
+                    </button>
+                `;
+                console.log('already applied');
+            } else {
+                const applyJobButton = document.getElementById('applyJob-button');
+                applyJobButton.innerHTML = `
+                    <button onclick="applyJob(${jobId}, '${language}')" class="applyJobButton">
+                        ${language === 'ja' ? '応募' : 'Apply'}
+                    </button>
+                `;
+                console.log('not applied');
+            }
+
+        })
         
     });
 }
@@ -88,13 +114,17 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('input[name="language"]').forEach(radio => {
         radio.addEventListener('change', () => {
             if (language === 'ja') {
-                language = 'en';
+                // language = 'en';
+                sessionStorage.setItem('language', 'en');
             } else {
                 language = 'ja';
+                sessionStorage.setItem('language', 'ja');
             }
             fetchJobData(jobId, language);
         });
     });
+
+    
 
 });
 

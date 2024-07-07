@@ -1,0 +1,20 @@
+[
+    {
+        "user_id": 1,
+        "favoriteJobs": [
+            1,
+            2
+        ],
+        "appliedJobs": [
+            1,
+            2
+        ],
+        "name": "a",
+        "email": "bigen@example.com",
+        "japaneseLevel": "native",
+        "englishLevel": "native",
+        "profilePicture": "/uploads/images/1720257599195.jpg",
+        "bio": "a",
+        "resume": "/uploads/documents/1720257599197.pdf"
+    }
+]

@@ -70,6 +70,7 @@ function fetchUserData(language) {
                                 <p><strong>${language === 'ja' ? '路線' : 'Line'}:</strong> ${job.line}</p>
                                 <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
                                 <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
+                                <p><strong>${language === 'ja' ? '日時' : 'Job Date'}:</strong> ${job.date} ${job.beginTime} ~ ${job.endTime}</p>
                                 <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duaration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
                             </div>
                             <div class="job-item-image">
@@ -85,14 +86,12 @@ function fetchUserData(language) {
                     faboriteButtonDiv.innerHTML = `
                         <button onclick="removeFromFavorites(${job.id}, '${language}')" class="unlikeButton">
                             <svg class="unlikeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
-                            ${language === 'ja' ? 'お気に入りから削除' : 'Remove from favorites'}
                         </button>
                     `
                 } else {
                     faboriteButtonDiv.innerHTML = `
                         <button onclick="addToFavorites(${jobId}, '${language}')" class="likeButton">
                             <svg class="likeButton__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M91.6 13A28.7 28.7 0 0 0 51 13l-1 1-1-1A28.7 28.7 0 0 0 8.4 53.8l1 1L50 95.3l40.5-40.6 1-1a28.6 28.6 0 0 0 0-40.6z"/></svg>
-                            ${language === 'ja' ? 'お気に入りに追加' : 'Add to favorites'}
                         </button>
                     `
                 }
@@ -111,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const switchCheckboxJa = document.getElementById('switch-checkbox-ja');
     
     let language = sessionStorage.getItem('language');
+    console.log(switchCheckboxJa.checked);
 
     if (language === 'ja') {
         // toggleSwitch.checked = true;
@@ -134,6 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
             fetchUserData(language);
         });
     });
+
+    
 
 });
 

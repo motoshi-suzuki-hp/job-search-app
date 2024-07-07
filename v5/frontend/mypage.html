@@ -14,22 +14,30 @@
 
     <header>
         <div class="header-inner">
-            <div>
+            <div class="header-logo">
                 <a href="/">
-                    <h1 id="header-text" data-lang="headerTextMypage"></h1>
+                    <div>
+                        <img src="./logos/logo_white.png" alt="jappin">
+                    </div>
                 </a>
             </div>
-            <div id="switch-checkbox">
-                <label>
-                    <input type="radio" name="language" value="en" checked> English
-                </label>
-                <label>
-                    <input type="radio" name="language" value="ja"> 日本語
-                </label>
+
+            <div class="header-right">
+                <div class="header-mypage-button">
+                    <a href="/mypage" data-lang="mypage">mypage</a>
+                </div>
+                <div id="switch-checkbox">
+                    <label>
+                        <input type="radio" name="language" value="en" id="switch-checkbox-en" checked> English
+                    </label>
+                    <label>
+                        <input type="radio" name="language" value="ja" id="switch-checkbox-ja"> 日本語
+                    </label>
+                </div>
+
             </div>
-            <div class="header-mypage-button">
-                <a href="/mypage" data-lang="mypage">mypage</a>
-            </div>
+
+
         </div>
 
     </header>
@@ -39,7 +47,7 @@
         <div class="mypage-inner">
             <div id="user-data"></div>
             <div class="update-button">
-                <a href="/mypage-update">update</a>
+                <a href="/mypage-update" data-lang="update">update</a>
             </div>
 
 

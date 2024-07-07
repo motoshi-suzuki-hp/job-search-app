@@ -63,9 +63,11 @@ function updateMypage(event) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const switchCheckboxJa = document.getElementById('switch-checkbox-ja');
+    const switchCheckboxEn = document.getElementById('switch-checkbox-en');
     
     let language = sessionStorage.getItem('language');
     
+    console.log(switchCheckboxEn.checked);
     if (language === 'ja') {
         switchCheckboxJa.checked = true;
     }

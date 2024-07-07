@@ -179,7 +179,12 @@ function updateStationOptions() {
 
 document.addEventListener("DOMContentLoaded", () => {
     updateAreaLineJobOptions();
-    sessionStorage.setItem('language', 'en');
+    // sessionStorage.setItem('language', 'en');
+    const switchCheckboxJa = document.getElementById('switch-checkbox-ja');
+        if (sessionStorage.getItem('language') === 'ja') {
+            switchCheckboxJa.checked = true;
+        }
+
 });
 
 
@@ -190,8 +195,14 @@ document.querySelectorAll('input[name="language"]').forEach(radio => {
         updateAreaLineJobOptions();
         if (searchJobsFlag) searchJobs();
         // if sessionStorage.setItem('language', profilePicturePath);
+
+        const switchCheckboxJa = document.getElementById('switch-checkbox-ja');
+        if (sessionStorage.getItem('language') === 'ja') {
+            switchCheckboxJa.checked = true;
+        }
     });
 });
+
 
 
 document.getElementById('area-select').addEventListener('change', updateCityOptions);
@@ -249,7 +260,7 @@ function displayJobs(jobs) {
                                 <p><strong>${language === 'ja' ? '路線' : 'Line'}:</strong> ${job.line}</p>
                                 <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
                                 <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
-                                <p><strong>${language === 'ja' ? '日付' : 'Job Date'}:</strong> ${job.date}</p>
+                                <p><strong>${language === 'ja' ? '日時' : 'Job Date'}:</strong> ${job.date} ${job.beginTime} ~ ${job.endTime}</p>
                                 <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duaration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
                                 </div>
                             <div class="job-item-image">

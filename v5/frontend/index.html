@@ -11,22 +11,30 @@
 <body>
     <header>
         <div class="header-inner">
-            <div>
-                <a href="">
-                    <h1 id="header-text" data-lang="headerText">仕事検索アプリ</h1>
+            <div class="header-logo">
+                <a href="/">
+                    <div>
+                        <img src="./logos/logo_white.png" alt="jappin">
+                    </div>
                 </a>
             </div>
-            <div id="switch-checkbox">
-                <label>
-                    <input type="radio" name="language" value="en" checked> English
-                </label>
-                <label>
-                    <input type="radio" name="language" value="ja"> 日本語
-                </label>
+
+            <div class="header-right">
+                <div class="header-mypage-button">
+                    <a href="/mypage" data-lang="mypage">mypage</a>
+                </div>
+                <div id="switch-checkbox">
+                    <label>
+                        <input type="radio" name="language" value="en" id="switch-checkbox-en" checked> English
+                    </label>
+                    <label>
+                        <input type="radio" name="language" value="ja" id="switch-checkbox-ja"> 日本語
+                    </label>
+                </div>
+
             </div>
-            <div class="header-mypage-button">
-                <a href="/mypage" data-lang="mypage">mypage</a>
-            </div>
+
+
         </div>
 
     </header>

@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             headerTextMypage: "Mypage",
 
+            update: "Update",
 
             updateName: "Name",
             updateEmail: "Email",
@@ -41,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateJapaneseLevel: "Japanese Level",
             updateEnglishLevel: "English Level",
             updateProfilePicture: "Profile Picture",
+            updateProfileDocument: "Resume",
 
             mypage: "Mypage",
             updateDocument: "Update Information",
@@ -74,6 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             headerTextMypage: "マイページ",
 
+            update: "更新",
 
             updateName: "名前",
             updateEmail: "メールアドレス",
@@ -81,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateJapaneseLevel: "日本語能力",
             updateEnglishLevel: "英語能力",
             updateProfilePicture: "プロフィール写真",
+            updateProfileDocument: "履歴書",
 
             mypage: "マイページ",
             updateDocument: "情報更新",
@@ -95,6 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
             setLanguage(radio.value);
         });
     });
+
+    
 
     function setLanguage(language) {
         document.querySelectorAll('[data-lang]').forEach(element => {

@@ -12,22 +12,30 @@
 <body>
     <header>
         <div class="header-inner">
-            <div>
+            <div class="header-logo">
                 <a href="/">
-                    <h1 id="header-text" data-lang="headerTextMypage"></h1>
+                    <div>
+                        <img src="./logos/logo_white.png" alt="jappin">
+                    </div>
                 </a>
             </div>
-            <div id="switch-checkbox">
-                <label>
-                    <input type="radio" name="language" value="en" checked> English
-                </label>
-                <label>
-                    <input type="radio" name="language" value="ja"> 日本語
-                </label>
+
+            <div class="header-right">
+                <div class="header-mypage-button">
+                    <a href="/mypage" data-lang="mypage">mypage</a>
+                </div>
+                <div id="switch-checkbox">
+                    <label>
+                        <input type="radio" name="language" value="en" id="switch-checkbox-en" checked> English
+                    </label>
+                    <label>
+                        <input type="radio" name="language" value="ja" id="switch-checkbox-ja"> 日本語
+                    </label>
+                </div>
+
             </div>
-            <div class="header-mypage-button">
-                <a href="/mypage" data-lang="mypage">mypage</a>
-            </div>
+
+
         </div>
 
     </header>
@@ -99,7 +107,7 @@
                 <label for="profilePicture"  data-lang="updateProfilePicture">プロフィール写真</label>
                 <input type="file" id="profilePicture" name="profilePicture" accept="image/*"><br>
 
-                <label for="resume">履歴書 (PDF)</label>
+                <label for="resume"  data-lang="updateProfileDocument">履歴書 (PDF)</label>
                 <input type="file" id="resume" name="resume" accept="application/pdf"><br>
         
         
