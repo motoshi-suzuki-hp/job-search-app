@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "title": "Advertizement 1",
+        "description": "This is the first advertizement",
+        "url": "https://www.google.com",
+        "image": "/ads/images/ad1.jpg",
+        "price": 100
+    },
+    {
+        "id": 2,
+        "title": "Advertizement 2",
+        "description": "This is the second advertizement",
+        "url": "https://www.google.com",
+        "image": "/ads/images/ad2.jpg",
+        "price": 200
+    },
+    {
+        "id": 3,
+        "title": "Advertizement 3",
+        "description": "This is the third advertizement",
+        "url": "https://www.google.com",
+        "image": "/ads/images/ad3.jpg",
+        "price": 300
+    },
+    {
+        "id": 4,
+        "title": "Advertizement 4",
+        "description": "This is the fourth advertizement",
+        "url": "https://www.google.com",
+        "image": "/ads/images/ad4.jpg",
+        "price": 400
+    },
+    {
+        "id": 5,
+        "title": "Advertizement 5",
+        "description": "This is the fifth advertizement",
+        "url": "https://www.google.com",
+        "image": "/ads/images/ad5.jpg",
+        "price": 500
+    }
+]

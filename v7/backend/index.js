@@ -6,9 +6,6 @@ const favicon = require('serve-favicon');
 const app = express();
 const port = 3000;
 
-
-
-
 // アップロードディレクトリのパス
 const imageUploadDir = path.join(__dirname, 'uploads', 'images');
 const documentUploadDir = path.join(__dirname, 'uploads', 'documents');
@@ -38,9 +35,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-
-
-
 // ミドルウェアの設定
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend')));
@@ -67,6 +61,9 @@ app.get('/api/jobs', (req, res) => {
     const jobDuration = req.query.jobDuration;
     const date = req.query.date;
     const language = req.query.language || 'en';
+    const minWage = req.query.minWage;
+    const maxWage = req.query.maxWage;
+    const languageLevel = req.query.languageLevel;
     
     const filePath = language === 'en' ? './data/jobs_en.json' : './data/jobs_ja.json';
     
@@ -93,7 +90,7 @@ app.get('/api/jobs', (req, res) => {
             );
         }
 
-        console.log(jobs);
+        // console.log(minWage);
 
         if (area) {
             jobs = jobs.filter(job => job.area === area);
@@ -113,13 +110,47 @@ app.get('/api/jobs', (req, res) => {
         if (date) {
             jobs = jobs.filter(job => job.date === date);
         }
+        // フィルタリング処理
+        if (minWage) {
+            jobs = jobs.filter(job => job.wage >= minWage);
+        }
+        if (maxWage) {
+            jobs = jobs.filter(job => job.wage <= maxWage);
+        }
         if (jobDuration === 'single') {
             jobs = jobs.filter(job => job.is_single);
         } else if (jobDuration === 'long') {
             jobs = jobs.filter(job => !job.is_single);
         }
 
-        res.json(jobs);
+        fs.readFile(filePath_users, 'utf8', (err, data) => {
+            if (err) {
+                res.status(500).send(err.message);
+                return;
+            }
+
+            let user = JSON.parse(data)[0];
+
+
+            if (languageLevel === 'yourLevel') {
+                // console.log(parseInt(user.japaneseLevel) >= parseInt(jobs[0].japaneseLevel));
+                // jobs = jobs.filter(job => parseInt(job.englishLevel) <= parseInt(user.englishLevel) && parseInt(job.japaneseLevel) <= parseInt(user.japaneseLevel));
+                jobs = jobs.filter(job => {
+                    // console.log(`Job English Level: ${job.englishLevel}, User English Level: ${user.englishLevel}`);
+                    // console.log(`Job Japanese Level: ${job.japaneseLevel}, User Japanese Level: ${user.japaneseLevel}`);
+                    return parseInt(job.englishLevel) <= parseInt(user.englishLevel) &&
+                           parseInt(job.japaneseLevel) <= parseInt(user.japaneseLevel);
+                });
+
+                console.log(jobs);
+
+            }
+
+        // console.log(jobs);
+            res.json(jobs);
+            
+        });
+
     });
 });
 
@@ -304,25 +335,6 @@ app.get('/mypage-update', (req, res) => {
 
 
 
-// function updateUserData(userData, filePath, callback) {
-    
-//     loadUserData(filePath, (err, data) => {
-//         if (err) {
-//             return callback(err);
-//         }
-
-//         // console.log(data);
-//         // console.log(userData);
-//         data[0].name = userData.name;
-//         data[0].email = userData.email;
-//         data[0].bio = userData.bio;
-//         data[0].japaneseLevel = userData.japaneseLevel;
-//         data[0].englishLevel = userData.englishLevel;
-
-
-//         saveUserData(filePath, data, callback);
-//     });
-// }
 
 function updateUserData(userData, filePath, callback) {
     loadUserData(filePath, (err, data) => {
@@ -351,20 +363,6 @@ function updateUserData(userData, filePath, callback) {
         saveUserData(filePath, data, callback);
     });
 }
-
-
-// // update用APIエンドポイント
-// app.post('/mypage-update', (req, res) => {
-//     const userData = req.body;
-//     // console.log(req);
-//     updateUserData(userData, filePath_users, (err) => {
-//         if (err) {
-//             console.log(err);
-//             return res.status(500).json({ success: false, message: 'エラーが発生しました' });
-//         }
-//         res.json({ success: true });
-//     });
-// });
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -403,7 +401,25 @@ app.post('/mypage-update', upload.fields([{ name: 'profilePicture' }, { name: 'r
 
 
 
+// adsデータ取得のAPIエンドポイント
+app.get('/api/ads', (req, res) => {
+    const filePath_ads = path.join(__dirname, 'ads', `ads.json`);
+    fs.readFile(filePath_ads, 'utf8', (err, data) => {
+        if (err) {
+            res.status(500).send('Failed to read ads data.');
+            return;
+        }
+        const adData = JSON.parse(data);
 
+        if (!adData) {
+            res.status(404).send('Ad not found.');
+            return;
+        }
+        res.json(adData);
+    });
+})
+// adsディレクトリを静的ファイルとして提供
+app.use('/ads', express.static(path.join(__dirname, 'ads')));
 
 
 
