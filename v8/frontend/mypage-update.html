@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mypage</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="header-logo">
+                <a href="/">
+                    <div>
+                        <img src="./logos/logo_white.png" alt="jappin">
+                    </div>
+                </a>
+            </div>
+
+            <div class="header-right">
+                <div class="header-mypage-button">
+                    <a href="/mypage" data-lang="mypage">mypage</a>
+                </div>
+                <div id="switch-checkbox">
+                    <label>
+                        <input type="radio" name="language" value="en" id="switch-checkbox-en" checked> English
+                    </label>
+                    <label>
+                        <input type="radio" name="language" value="ja" id="switch-checkbox-ja"> 日本語
+                    </label>
+                </div>
+                <!-- <div id="switch-checkbox-outer">
+                    <select name="language" id="switch-checkbox">
+                        <option value="en" id="switch-checkbox-en">English</option>
+                        <option value="ja" id="switch-checkbox-ja">日本語</option>
+                        <option value="ch" id="switch-checkbox-ch">中文</option>
+                    </select>
+                </div> -->
+            </div>
+
+
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- <div class="mypage-inner">
+            <form action="/mypage-update" method="POST">
+                <label for="name">名前:</label>
+                <input type="text" id="updateName" name="name" /><br>
+        
+                <label for="email">メールアドレス:</label>
+                <input type="email" id="updateEmail" name="email" /><br>
+        
+                <label for="bio">自己紹介:</label>
+                <textarea id="bio" name="updateBio"></textarea><br>
+
+                <label for="janpaneseLevel">日本語能力</label>
+                <select id="janpaneseLevel" name="janpaneseLevel">
+                    <option value="native">Native</option>
+                    <option value="fluent">Fluent</option>
+                    <option value="proficient">Proficient</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="beginner">Beginner</option>
+                </select><br>
+
+                <label for="englishLevel">英語能力</label>
+                <select id="englishLevel" name="englishLevel">
+                    <option value="native">Native</option>
+                    <option value="fluent">Fluent</option>
+                    <option value="proficient">Proficient</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="beginner">Beginner</option>
+                </select><br>
+
+                <button onclick="updateMypage()">更新</button>
+            </form>
+        </div> -->
+
+        <div class="mypage-update-inner">
+            <form action="/mypage-update" method="POST" enctype="multipart/form-data"  onsubmit="updateMypage(event)">
+                <label for="name" data-lang="updateName">名前:</label>
+                <input type="text" id="updateName" name="name" /><br>
+                
+                <label for="email" data-lang="updateEmail">メールアドレス:</label>
+                <input type="email" id="updateEmail" name="email" /><br>
+                
+                <label for="bio" data-lang="updateBio">自己紹介:</label>
+                <textarea id="updateBio" name="bio"></textarea><br>
+        
+                <label for="japaneseLevel" data-lang="updateJapaneseLevel">日本語能力</label>
+                <select id="japaneseLevel" name="japaneseLevel">
+                    <option value="5">Native</option>
+                    <option value="4">Fluent</option>
+                    <option value="3">Proficient</option>
+                    <option value="2">Intermediate</option>
+                    <option value="1">Beginner</option>
+                </select><br>
+        
+                <label for="englishLevel" data-lang="updateEnglishLevel">英語能力</label>
+                <select id="englishLevel" name="englishLevel">
+                    <option value="5">Native</option>
+                    <option value="4">Fluent</option>
+                    <option value="3">Proficient</option>
+                    <option value="2">Intermediate</option>
+                    <option value="1">Beginner</option>
+                </select><br>
+
+                <label for="profilePicture"  data-lang="updateProfilePicture">プロフィール写真</label>
+                <input type="file" id="profilePicture" name="profilePicture" accept="image/*"><br>
+
+                <label for="resume"  data-lang="updateProfileDocument">履歴書 (PDF)</label>
+                <input type="file" id="resume" name="resume" accept="application/pdf"><br>
+        
+        
+                <input type="submit" value="update">
+            </form>
+        </div>
+        
+
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-links">
+                <ul class="footer-link-list">
+                    <li>
+                        <a href="#" data-lang="companyInfo">Company Information</a>
+                    </li>
+                    <li>
+                        <a href="#" data-lang="access">Access</a>
+                    </li>
+                    <li>
+                        <a href="#" data-lang="society">Society</a>
+                    </li>
+                    <li>
+                        <a href="#" data-lang="personalInfo">Personal Information</a>
+                    </li>
+                    <li>
+                        <a href="#" data-lang="contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-copyright">
+                <p>Copyright &copy; JAPPIN'</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
+    <script src="./mypage-update.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>

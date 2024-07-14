@@ -1,0 +1,430 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: black;
+    color: white;
+    /* padding: 10px; */
+    text-align: center;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 1);
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    /* display: block; */
+}
+a:hover {
+    color: black;
+}
+
+li {
+    list-style-type: none;
+}
+
+.header-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    vertical-align: middle;
+}
+
+.header-logo {
+    height: 100px;
+    width: fit-content;
+    /* justify-self: center; */
+}
+
+.header-logo a {
+    display: block;
+    height: 100%;
+    width: auto;
+}
+
+.header-logo a div {
+    height: 100%;
+}
+
+.header-logo a div img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-right {
+    display: flex;
+    /* justify-content: space-between; */
+    width: fit-content;
+    margin-left : auto;
+}
+
+.header-mypage-button {
+    height: fit-content;
+    margin: auto 0;
+    /* justify-self: right; */
+    border-right: 1px solid #ffffff;
+    padding: 0 20px;
+}
+
+.header-mypage-button a {
+    color: white;
+}
+
+#switch-checkbox {
+    height: fit-content;
+    margin: auto 0;
+    /* justify-self: left; */
+    padding: 0 20px;
+
+}
+
+
+#area-select, #city-select, #line-select, #station-select, #job-type-select {
+    margin-top:10px;
+    padding-left: 14px;
+    border-radius: 4px;
+    border: 1px solid #DCDFE6;
+    background: rgba(217, 217, 217, 0);
+    height: 40px;
+    width: 30%;
+    min-width: 200px;
+    font-family: Noto Sans JP;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%; /* 16px */
+}
+
+/* search */
+.select-ads {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ad {
+    width: 35%;
+    height: auto;
+    vertical-align: middle;
+}
+.ad-inner {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+}
+
+.ad-inner a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.ad-inner a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.margin-10vw {
+
+    margin: auto 10vw;
+}
+
+
+.search {
+    padding: 40px 10px 10px;
+    text-align: center;
+}
+
+#search-input {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.search-select {
+    width: fit-content;
+    margin: 0 3vw auto;
+}
+
+.search-select table {
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+
+.select-area td, .select-station:first-child, .select-job-type:first-child {
+    margin: 10px;
+}
+
+.wage-range {
+    display: flex;
+    vertical-align: middle;
+    margin: 20px 0;
+}
+
+.wage-range label, .wage-range p {
+    height: fit-content;
+    margin: auto 5px;
+}
+.wage-range input {
+    width: 100px;
+    margin: 0 10px;
+}
+
+/* button */
+
+button {
+    padding: 10px 20px;
+}
+
+.search-button {
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1em;
+    border: none;
+}
+.search-button:hover {
+    color: white;
+    background-color: #a4a9ad;
+    transition: .5s;
+}
+
+.job-duration {
+    margin: 10px 0 30px;
+}
+
+#job-list, #job-count {
+    margin: auto 10vw;
+    padding: 20px;
+}
+
+.job-item {
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    /* padding: 10px; */
+}
+
+.job-item-inner {
+    /* padding: 10px; */
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.job-item-text {
+    max-width: 50%;
+    height: 100%;
+    padding: 30px;
+    text-align: left;
+}
+
+.job-item-image {
+    width: 50%;
+    height: 100%;
+}
+
+.job-item-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.job-inner {
+    margin-top: 20px;
+    /* padding: 30px 10px 10px; */
+}
+
+
+
+#job-title h2 {
+    font-size: 40px;
+    margin: 0;
+}
+
+
+.job-mv-inner {
+    width: 100%;
+}
+
+.job-mv-inner img {
+    width: 100%;
+}
+
+.job-description {
+    padding: 20px;
+}
+
+
+/* details */
+
+#job-title {
+    padding: 20px;
+}
+
+#job-images-title {
+    padding: 20px;
+}
+
+#job-mv {
+    padding: 20px;
+}
+
+#job-images-list {
+    display: grid;
+    width: fit-content;
+    padding: 20px;
+    grid-template-columns: repeat(3, auto);
+}
+
+#job-images-list li {
+    width: min(calc(100% - 10px), calc((80vw - 40px) / 3));
+    margin-right: 10px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+#job-images-list li img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+.applyJobButton {
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1em;
+    border: none;
+    margin: 20px 0;
+
+}
+
+
+
+
+
+/* footer */
+footer {
+    background-color: black;
+}
+.footer-inner {
+    padding: 30px 0 30px;
+    margin: auto 10vw;
+}
+.footer-links {
+    width: fit-content;
+    margin: 20px auto;
+}
+.footer-link-list {
+    width: 100%;
+    display: flex;
+    padding-left: 0px;
+}
+
+.footer-link-list li {
+    padding: 0 20px;
+    border-right: solid 1px white;
+}
+
+.footer-link-list li:last-child {
+    border-right: none;
+}
+
+.footer-link-list li a {
+    color: white;
+}
+
+.footer-copyright {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+
+.footer-copyright p {
+    font-size: 0.7em;
+    color: white;
+    text-align: center;
+}
+
+
+
+
+
+
+/* いいね */
+.likeButton {
+    color: #a4a9ad;
+    font-size: 1.5em;
+    background-color: transparent;
+    border: 0.1em solid;
+    border-radius: 1em;
+    padding: 0.333em 1em 0.25em;
+    line-height: 1.2em;
+    box-shadow: 0 0.25em 1em -0.25em;
+    cursor: pointer;
+    transition: color 150ms ease-in-out, background-color 150ms ease-in-out, transform 150ms ease-in-out;
+    outline: 0;
+}
+
+.likeButton__icon {
+    display: inline-block;
+    fill: currentColor;
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 0.2em;
+}
+
+.likeButton:hover {
+    color: #ff3366;
+}
+.likeButton.liked {
+    color: #ffffff;
+    background-color: #ff3366;
+    border-color: #ff3366;
+}
+
+.unlikeButton {
+    color: #ffffff;
+    font-size: 1.5em;
+    background-color: #ff3366;
+    border: 0.1em solid #ff3366;
+    border-radius: 1em;
+    padding: 0.333em 1em 0.25em;
+    line-height: 1.2em;
+    box-shadow: 0 0.25em 1em -0.25em;
+    cursor: pointer;
+    transition: color 150ms ease-in-out, background-color 150ms ease-in-out, transform 150ms ease-in-out;
+    outline: 0;
+}
+
+.unlikeButton__icon {
+    display: inline-block;
+    fill: currentColor;
+    width: 0.8em;
+    height: 0.8em;
+    margin-right: 0.2em;
+}
+
+.unlikeButton:hover {
+    color: #ff3366;
+    background-color: transparent;
+}
+.unlikeButton.unliked {
+    color: #a4a9ad;
+    background-color: transparent;
+    border-color: default;
+}

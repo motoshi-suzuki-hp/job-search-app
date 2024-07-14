@@ -1,0 +1,44 @@
+.job-inner {
+    margin: 50px 10vw 0;
+}
+.job-detail-part {
+    display: flex;
+}
+
+.job-text-part {
+    width: 50%;
+}
+
+.job-image-part {
+    width: 50%;
+}
+
+.job-conditions {
+    padding: 20px;
+}
+
+
+
+/* 投稿ボタン */
+
+.apply-button {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    /* width: fit-content;
+    height: auto; */
+    padding: 10px 20px;
+    /* line-height:70px; */
+    color:white;
+    /* font-weight: bold; */
+    font-size: 30px;
+    background: #2ec4b6;
+    border-radius: 90px;
+    text-align: center;
+}
+
+.apply-button p {
+    /* width: fit-content; */
+    /* height: 1em; */
+    margin-bottom: 0 !important;
+}
