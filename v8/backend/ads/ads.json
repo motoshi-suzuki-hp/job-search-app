@@ -1,5 +1,13 @@
 [
     {
+        "id": 0,
+        "title": "Advertizement 0",
+        "description": "This is the first advertizement",
+        "url": "https://www.google.com",
+        "image": "/ads/images/ad0.png",
+        "price": 100
+    },
+    {
         "id": 1,
         "title": "Advertizement 1",
         "description": "This is the first advertizement",

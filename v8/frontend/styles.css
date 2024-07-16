@@ -29,6 +29,7 @@ li {
 
 .header-inner {
     width: 100%;
+    height: fit-content;
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
@@ -36,23 +37,30 @@ li {
 }
 
 .header-logo {
-    height: 100px;
+    height: 70px;
+    width: 250px;
     width: fit-content;
     /* justify-self: center; */
+    object-fit: cover;
 }
 
 .header-logo a {
     display: block;
     height: 100%;
+    width: 100%;
     width: auto;
+    object-fit: cover;
 }
 
 .header-logo a div {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .header-logo a div img {
-    height: 100%;
+    width: 150%;
+    height: 70px;
     object-fit: cover;
 }
 

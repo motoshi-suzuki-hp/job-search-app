@@ -1,0 +1,23 @@
+.mypage-update-inner {
+    margin: 50px 10vw;
+}
+
+.mypage-update-inner form table {
+    margin: auto;
+}
+
+.mypage-update-inner form table tr {
+    margin: 15px 0;
+}
+
+.mypage-update-inner form table tr td {
+    padding: 5px;
+}
+
+
+
+
+.submit-button {
+    width: fit-content;
+    margin: 30px auto;
+}

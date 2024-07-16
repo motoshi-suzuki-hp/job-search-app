@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./mypage-update.css">
 
 </head>
 <body>
@@ -83,41 +84,150 @@
 
         <div class="mypage-update-inner">
             <form action="/mypage-update" method="POST" enctype="multipart/form-data"  onsubmit="updateMypage(event)">
-                <label for="name" data-lang="updateName">名前:</label>
-                <input type="text" id="updateName" name="name" /><br>
-                
-                <label for="email" data-lang="updateEmail">メールアドレス:</label>
-                <input type="email" id="updateEmail" name="email" /><br>
-                
-                <label for="bio" data-lang="updateBio">自己紹介:</label>
-                <textarea id="updateBio" name="bio"></textarea><br>
-        
-                <label for="japaneseLevel" data-lang="updateJapaneseLevel">日本語能力</label>
-                <select id="japaneseLevel" name="japaneseLevel">
-                    <option value="5">Native</option>
-                    <option value="4">Fluent</option>
-                    <option value="3">Proficient</option>
-                    <option value="2">Intermediate</option>
-                    <option value="1">Beginner</option>
-                </select><br>
-        
-                <label for="englishLevel" data-lang="updateEnglishLevel">英語能力</label>
-                <select id="englishLevel" name="englishLevel">
-                    <option value="5">Native</option>
-                    <option value="4">Fluent</option>
-                    <option value="3">Proficient</option>
-                    <option value="2">Intermediate</option>
-                    <option value="1">Beginner</option>
-                </select><br>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="name" data-lang="updateName">名前:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="updateName" name="name" /><br>
+                        </td>
+                    </tr>
 
-                <label for="profilePicture"  data-lang="updateProfilePicture">プロフィール写真</label>
-                <input type="file" id="profilePicture" name="profilePicture" accept="image/*"><br>
+                    <tr>
+                        <td>
+                            <label for="gender" data-lang="updateGender">性別:</label>
+                        </td>
+                        <td>
+                            <select id="updategender" name="gender">
+                                <option value="Male" data-lang="male">Male</option>
+                                <option value="Femail" data-lang="female">Femail</option>
+                                <option value="-">-</option>
+                            </select><br>
+                        </td>
+                    </tr>
 
-                <label for="resume"  data-lang="updateProfileDocument">履歴書 (PDF)</label>
-                <input type="file" id="resume" name="resume" accept="application/pdf"><br>
-        
-        
-                <input type="submit" value="update">
+                    <tr>
+                        <td>
+                            <label for="birthday" data-lang="updateBirthday">生年月日:</label>
+                        </td>
+                        <td>
+                            <input type="date" id="updatebirthday" name="birthday" /><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="nationality" data-lang="updateNationality">国籍:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="updateNationality" name="nationality" /><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="visa" data-lang="updateVisa">ビザの種類:</label>
+                        </td>
+                        <td>
+                            <select id="updateVisa" name="visa">
+                                <option value="Student" data-lang="studentVisa">Student Visa</option>
+                                <option value="Tourist" data-lang="touristVisa">Tourist Visa</option>
+                                <option value="Working" data-lang="workingVisa">Working Visa</option>
+                            </select><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="phone" data-lang="updatePhone">電話番号:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="updatePhone" name="phone" /><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="address" data-lang="updateAddress">住所:</label>
+                        </td>
+                        <td>
+                            <input type="text" id="updateAddress" name="address" /><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="email" data-lang="updateEmail">メールアドレス:</label>
+                        </td>
+                        <td>
+                            <input type="email" id="updateEmail" name="email" /><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="bio" data-lang="updateBio">自己紹介:</label>
+                        </td>
+                        <td>
+                            <textarea id="updateBio" name="bio"></textarea><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="japaneseLevel" data-lang="updateJapaneseLevel">日本語能力</label>
+                        </td>
+                        <td>
+                            <select id="japaneseLevel" name="japaneseLevel">
+                                <option value="5">Native</option>
+                                <option value="4">Fluent</option>
+                                <option value="3">Proficient</option>
+                                <option value="2">Intermediate</option>
+                                <option value="1">Beginner</option>
+                            </select><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="englishLevel" data-lang="updateEnglishLevel">英語能力</label>
+                        </td>
+                        <td>
+                            <select id="englishLevel" name="englishLevel">
+                                <option value="5">Native</option>
+                                <option value="4">Fluent</option>
+                                <option value="3">Proficient</option>
+                                <option value="2">Intermediate</option>
+                                <option value="1">Beginner</option>
+                            </select><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="profilePicture"  data-lang="updateProfilePicture">プロフィール写真</label>
+                        </td>
+                        <td>
+                            <input type="file" id="profilePicture" name="profilePicture" accept="image/*"><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="resume"  data-lang="updateProfileDocument">履歴書 (PDF)</label>
+                        </td>
+                        <td>
+                            <input type="file" id="resume" name="resume" accept="application/pdf"><br>
+                        </td>
+                    </tr>
+
+                    </table>
+
+
+                    <div class="submit-button">
+                        <input type="submit" value="update">
+                    </div>
             </form>
         </div>
         

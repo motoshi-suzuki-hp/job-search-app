@@ -39,6 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             updateName: "Name",
+            updateGender: "Gender",
+            male: "Male",
+            female: "Female",
+            updateBirthday: "Birthday",
+            updateNationality: "Nationality",
+            updateVisa: "Visa Type",
+            studentVisa: "Student Visa",
+            touristVisa: "Tourist Visa",
+            workingVisa: "Working Visa",
+            updatePhone: "Phone",
+            updateAddress: "Address",
             updateEmail: "Email",
             updateBio: "Biography",
             updateJapaneseLevel: "Japanese Level",
@@ -87,6 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             updateName: "名前",
+            updateGender: "性別",
+            male: "男性",
+            female: "女性",
+            updateBirthday: "生年月日",
+            updateNationality: "国籍",
+            updateVisa: "ビザの種類",
+            studentVisa: "留学ビザ",
+            touristVisa: "観光ビザ",
+            workingVisa: "就労ビザ",
+            updatePhone: "電話番号",
+            updateAddress: "住所",
             updateEmail: "メールアドレス",
             updateBio: "自己紹介",
             updateJapaneseLevel: "日本語能力",
@@ -118,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function setLanguage(language) {
+        // console.log(language);
         document.querySelectorAll('[data-lang]').forEach(element => {
             const key = element.getAttribute('data-lang');
             if (element.tagName === 'LABEL') {

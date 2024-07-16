@@ -8,11 +8,13 @@
     display: flex;
     justify-content: space-between;
 }
-
+.user-left {
+    width: 50%;
+}
 .user-image {
-    width: 30%;
+    width: 80%;
     height: auto;
-    margin: 0;
+    margin: 0 auto;
 }
 .user-image img {
     width: 100%;
@@ -20,9 +22,29 @@
     object-fit: contain;
 }
 
+.user-document {
+    margin: 30px auto;
+    width: fit-content;
+    padding: 0.5em 1.5em;
+    background-color: black;
+    border-radius: 3em;
+}
+
+.user-document a {
+    font-size: 1.5em;
+    color: white;
+}
+
 .user-text {
-    width: 65%;
+    width: 50%;
     height: auto;
+    margin-left: 100px;
+}
+
+
+
+.user-text table tr td:first-child {
+    padding-right: 30px;
 }
 
 .update-button {

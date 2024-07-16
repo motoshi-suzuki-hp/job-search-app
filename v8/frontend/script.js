@@ -184,11 +184,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // sessionStorage.setItem('language', 'en');
     language = sessionStorage.getItem('language');
     if (language === 'ja') {
-        document.getElementById("switch-checkbox-ja").selected = true;
-        document.getElementById("switch-checkbox-en").selected = false;
+        document.getElementById("switch-checkbox-ja").checked = true;
+        document.getElementById("switch-checkbox-en").checked = false;
     } else if (language === 'en') {
-        document.getElementById("switch-checkbox-ja").selected = false;
-        document.getElementById("switch-checkbox-en").selected = true;
+        document.getElementById("switch-checkbox-ja").checked = false;
+        document.getElementById("switch-checkbox-en").checked = true;
     }
 
 
@@ -197,7 +197,8 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`/api/ads`)
         .then(response => response.json())
         .then(data => {
-            const rand_left = Math.floor(Math.random() * data.length);
+            // const rand_left = Math.floor(Math.random() * data.length);
+            const rand_left = 0;
 
             const ad_left = document.getElementById('ad_left');
             const adItem_left = document.createElement('div');
@@ -211,7 +212,8 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
             ad_left.appendChild(adItem_left);
 
-            const rand_right = Math.floor(Math.random() * data.length);
+            // const rand_right = Math.floor(Math.random() * data.length);
+            const rand_right = 0;
 
             const ad_right = document.getElementById('ad_right');
             const adItem_right = document.createElement('div');
@@ -235,11 +237,11 @@ select.addEventListener('change', (e) => {
     sessionStorage.setItem('language', language);
 
     if (language === 'ja') {
-        document.getElementById("switch-checkbox-ja").selected = true;
-        document.getElementById("switch-checkbox-en").selected = false;
+        document.getElementById("switch-checkbox-ja").checked = true;
+        document.getElementById("switch-checkbox-en").checked = false;
     } else if (language === 'en') {
-        document.getElementById("switch-checkbox-ja").selected = false;
-        document.getElementById("switch-checkbox-en").selected = true;
+        document.getElementById("switch-checkbox-ja").checked = false;
+        document.getElementById("switch-checkbox-en").checked = true;
     }
 
     updateAreaLineJobOptions();
@@ -251,9 +253,9 @@ select.addEventListener('change', (e) => {
 
 
     if (language === 'ja') {
-        document.getElementById("switch-checkbox-ja").selected = true;
+        document.getElementById("switch-checkbox-ja").checked = true;
     } else if (language === 'en') {
-        document.getElementById("switch-checkbox-en").selected = true;
+        document.getElementById("switch-checkbox-en").checked = true;
     }
 });
 
@@ -285,6 +287,10 @@ function searchJobs() {
     // console.log(minWage);
 
     // console.log(line);
+
+    document.getElementById('job-count').scrollIntoView({  
+        behavior: 'smooth'
+    });
 
     fetch(`/api/jobs?keyword=${keyword}&area=${area}&city=${city}&line=${line}&station=${station}&jobType=${jobType}&date=${date}&jobDuration=${jobDuration}&language=${language}&minWage=${minWage}&maxWage=${maxWage}&languageLevel=${languageLevel}`)
         .then(response => response.json())
@@ -338,11 +344,11 @@ function displayJobs(jobs) {
                                 <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
                                 <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
                                 <p><strong>${language === 'ja' ? '日時' : 'Job Date'}:</strong> ${job.date} ${job.beginTime} ~ ${job.endTime}</p>
-                                <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duaration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
+                                <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
                                 <p><strong>${language === 'ja' ? '日本語レベル' : 'Japanese Level'}:</strong> ${languageLevelNumberToString(job.japaneseLevel)}</p>
                                 <p><strong>${language === 'ja' ? '英語レベル' : 'English Level'}:</strong> ${languageLevelNumberToString(job.englishLevel)}</p>
 
-                                </div>
+                            </div>
                             <div class="job-item-image">
                                 <img src="${job.image_urls[0]}" alt="${job.title}" class="job-image">
                             </div>

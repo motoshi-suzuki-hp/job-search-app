@@ -345,6 +345,12 @@ function updateUserData(userData, filePath, callback) {
         console.log(data);
         console.log(userData);
         data[0].name = userData.name;
+        data[0].gender = userData.gender;
+        data[0].birthday = userData.birthday;
+        data[0].nationality = userData.nationality;
+        data[0].visa = userData.visa;
+        data[0].phone = userData.phone;
+        data[0].address = userData.address;
         data[0].email = userData.email;
         data[0].bio = userData.bio;
         data[0].japaneseLevel = userData.japaneseLevel;

@@ -9,12 +9,18 @@
             1,
             2
         ],
-        "name": "a",
-        "email": "aaa@example.com",
-        "japaneseLevel": "2",
-        "englishLevel": "5",
+        "name": "motoshi",
+        "gender": "Male",
+        "birthday": "2000-07-11",
+        "nationality": "Japan",
+        "visa": "Student",
+        "phone": "00000000000",
+        "address": "東京都xxxxxxxxx",
+        "email": "bigen@example.com",
+        "japaneseLevel": "5",
+        "englishLevel": "3",
         "profilePicture": "/uploads/images/1720257599195.jpg",
-        "bio": "a",
+        "bio": "developper",
         "resume": "/uploads/documents/1720257599197.pdf"
     }
 ]

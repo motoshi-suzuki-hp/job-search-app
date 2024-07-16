@@ -63,16 +63,21 @@ function updateMypage(event) {
 
 document.addEventListener('DOMContentLoaded', () => {
     const switchCheckboxJa = document.getElementById('switch-checkbox-ja');
+    const switchCheckboxEn = document.getElementById('switch-checkbox-en');
     
     let language = sessionStorage.getItem('language');
+
     
     if (language === 'ja') {
-        document.getElementById("switch-checkbox-ja").selected = true;
-        document.getElementById("switch-checkbox-en").selected = false;
+        switchCheckboxJa.checked = true;
+        switchCheckboxEn.checked = false;
+
     } else if (language === 'en') {
-        document.getElementById("switch-checkbox-ja").selected = false;
-        document.getElementById("switch-checkbox-en").selected = true;
+        switchCheckboxJa.checked = false;
+        switchCheckboxEn.checked = true;
     }
+
+    console.log(switchCheckboxEn.checked);
 
 });
 

@@ -31,7 +31,7 @@ function fetchJobData(jobId, language) {
                 <p><strong>${language === 'ja' ? '路線' : 'Line'}:</strong> ${job.line}</p>
                 <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
                 <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
-                <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duaration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
+                <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
             </div>
         `;
         document.getElementById('job-details').innerHTML = jobDetails;
@@ -106,11 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const switchCheckboxJa = document.getElementById('switch-checkbox-ja');
 
     if (language === 'ja') {
-        document.getElementById("switch-checkbox-ja").selected = true;
-        document.getElementById("switch-checkbox-en").selected = false;
+        document.getElementById("switch-checkbox-ja").checked = true;
+        document.getElementById("switch-checkbox-en").checked = false;
     } else if (language === 'en') {
-        document.getElementById("switch-checkbox-ja").selected = false;
-        document.getElementById("switch-checkbox-en").selected = true;
+        document.getElementById("switch-checkbox-ja").checked = false;
+        document.getElementById("switch-checkbox-en").checked = true;
     }
     fetchJobData(jobId, language);
 

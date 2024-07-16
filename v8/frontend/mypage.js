@@ -36,19 +36,107 @@ function fetchUserData(language) {
 
 
         const userDetails = `
-            <div class="user-image">
-                <img src="${userData[0].profilePicture}" alt="${userData[0].name}">
+            <div class="user-left">
+                <div class="user-image">
+                    <img src="${userData[0].profilePicture}" alt="${userData[0].name}">
+                </div>
+                <div class="user-document">
+                    <a href="${userData[0].resume}" download>${language === 'ja' ? '履歴書' : 'resume'}</a>
+                </div>
             </div>
             <div class="user-text">
-                <p><strong>${language === 'ja' ? '名前' : 'Name'}:</strong> ${userData[0].name}</p>
-                <p><strong>${language === 'ja' ? 'メールアドレス' : 'E-mail'}:</strong> ${userData[0].email}</p>
-                <p><strong>${language === 'ja' ? 'プロフィール' : 'Biography'}:</strong> ${userData[0].bio}</p>
-                <p><strong>${language === 'ja' ? '日本語レベル' : 'Japanese Level'}:</strong> ${languageLevelNumberToString(parseInt(userData[0].japaneseLevel))}</p>
-                <p><strong>${language === 'ja' ? '英語レベル' : 'English Level'}:</strong> ${languageLevelNumberToString(parseInt(userData[0].englishLevel))}</p>
+                <table>
+                    <tr>
+                        <td>
+                            <p><strong>${language === 'ja' ? '名前' : 'Name'}:</strong></p>
+                        </td>
+                        <td>
+                            <p>${userData[0].name}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>${language === 'ja' ? '性別' : 'Gender'}:</strong></p>
+                        </td>
+                        <td>
+                            <p>${userData[0].gender}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>${language === 'ja' ? '生年月日' : 'Birthday'}:</strong></p>
+                        </td>
+                        <td>
+                            <p>${userData[0].birthday}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>${language === 'ja' ? '国籍' : 'Nationality'}:</strong></p>
+                        </td>
+                        <td>
+                            <p>${userData[0].nationality}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>${language === 'ja' ? 'ビザの種類' : 'Visa Type'}:</strong></p>
+                        </td>
+                        <td>
+                            <p>${userData[0].visa}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>${language === 'ja' ? '電話番号' : 'Phone Number'}:</strong></p>
+                        </td>
+                        <td>
+                            <p>${userData[0].phone}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>${language === 'ja' ? '住所' : 'Address'}:</strong></p>
+                        </td>
+                        <td>
+                            <p>${userData[0].address}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>${language === 'ja' ? 'メールアドレス' : 'E-mail'}:</strong></p>
+                        </td>
+                        <td>
+                            <p>${userData[0].email}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>${language === 'ja' ? 'プロフィール' : 'Biography'}:</strong></p>
+                        </td>
+                        <td>
+                            <p>${userData[0].bio}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>${language === 'ja' ? '日本語レベル' : 'Japanese Level'}:</strong></p>
+                        </td>
+                        <td>
+                            <p>${languageLevelNumberToString(parseInt(userData[0].japaneseLevel))}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><strong>${language === 'ja' ? '英語レベル' : 'English Level'}:</strong></p>
+                        </td>
+                        <td>
+                            <p>${languageLevelNumberToString(parseInt(userData[0].englishLevel))}</p>
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <div class="user-document">
-                <a href="${userData[0].resume}" download>${language === 'ja' ? '履歴書' : 'resume'}</a>
-            </div>
+
             
         `;
         document.getElementById('user-data').innerHTML = userDetails;
@@ -84,7 +172,10 @@ function fetchUserData(language) {
                                 <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
                                 <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
                                 <p><strong>${language === 'ja' ? '日時' : 'Job Date'}:</strong> ${job.date} ${job.beginTime} ~ ${job.endTime}</p>
-                                <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duaration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
+                                <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
+                                <p><strong>${language === 'ja' ? '日本語レベル' : 'Japanese Level'}:</strong> ${languageLevelNumberToString(job.japaneseLevel)}</p>
+                                <p><strong>${language === 'ja' ? '英語レベル' : 'English Level'}:</strong> ${languageLevelNumberToString(job.englishLevel)}</p>
+
                             </div>
                             <div class="job-item-image">
                                 <img src="${job.image_urls[0]}" alt="${job.title}" class="job-image">
@@ -127,11 +218,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let language = sessionStorage.getItem('language');
 
     if (language === 'ja') {
-        document.getElementById("switch-checkbox-ja").selected = true;
-        document.getElementById("switch-checkbox-en").selected = false;
+        document.getElementById("switch-checkbox-ja").checked = true;
+        document.getElementById("switch-checkbox-en").checked = false;
     } else if (language === 'en') {
-        document.getElementById("switch-checkbox-ja").selected = false;
-        document.getElementById("switch-checkbox-en").selected = true;
+        document.getElementById("switch-checkbox-ja").checked = false;
+        document.getElementById("switch-checkbox-en").checked = true;
     }
 
 
