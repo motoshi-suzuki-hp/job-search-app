@@ -9,18 +9,18 @@
             1,
             2
         ],
-        "name": "motoshi",
+        "name": "John",
         "gender": "Male",
-        "birthday": "2000-07-11",
-        "nationality": "Japan",
+        "birthday": "1998-06-12",
+        "nationality": "U.S.",
         "visa": "Student",
         "phone": "00000000000",
-        "address": "東京都xxxxxxxxx",
+        "address": "xxx, xxx, Tokyo",
         "email": "bigen@example.com",
-        "japaneseLevel": "5",
-        "englishLevel": "3",
+        "japaneseLevel": "3",
+        "englishLevel": "5",
         "profilePicture": "/uploads/images/1720257599195.jpg",
-        "bio": "developper",
+        "bio": "This is your biography.",
         "resume": "/uploads/documents/1720257599197.pdf"
     }
 ]

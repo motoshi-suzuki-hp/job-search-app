@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             jobDateLabel: "Job Date",
             all: "All",
-            singleJob: "Single Job",
+            singleJob: "Temporary Work",
             longJob: "Long Job",
 
-            yourLevel: "Your Level",
+            yourLevel: "Search from your English / Japanese Level",
 
             searchButton: "Search",
 
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             singleJob: "単発バイト",
             longJob: "長期バイト",
 
-            yourLevel: "あなたのレベル",
+            yourLevel: "あなたの英語/日本語レベルにあった職を探す",
 
             searchButton: "検索",
 

@@ -172,7 +172,7 @@ function fetchUserData(language) {
                                 <p><strong>${language === 'ja' ? '駅' : 'Station'}:</strong> ${job.station}</p>
                                 <p><strong>${language === 'ja' ? '職種' : 'Job Type'}:</strong> ${job.job_type}</p>
                                 <p><strong>${language === 'ja' ? '日時' : 'Job Date'}:</strong> ${job.date} ${job.beginTime} ~ ${job.endTime}</p>
-                                <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Single Job') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
+                                <p><strong>${language === 'ja' ? 'バイトの種類' : 'Job Duration'}:</strong> ${job.is_single ? (language === 'ja' ? '単発バイト' : 'Temporary Work') : (language === 'ja' ? '長期バイト' : 'Long Job')}</p>
                                 <p><strong>${language === 'ja' ? '日本語レベル' : 'Japanese Level'}:</strong> ${languageLevelNumberToString(job.japaneseLevel)}</p>
                                 <p><strong>${language === 'ja' ? '英語レベル' : 'English Level'}:</strong> ${languageLevelNumberToString(job.englishLevel)}</p>
 
